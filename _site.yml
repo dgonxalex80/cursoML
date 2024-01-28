@@ -6,15 +6,15 @@ navbar:
     - text: "Curso"
       icon: fa-home
       href: index.html  
-    - text: "Unidad 1"
+    - text: "U1"
       menu:
-        - text: "Unidad 1"
+        - text: "Unidad1"
           href: unidad1.html
         - text: "Conceptos básicos DM y ML"
           href: recurso110.html
         - text: "Aplicaciones de DM"
           href: recurso120.html     
-    - text: "Unidad 2"
+    - text: "U2"
       menu:
         - text: "Unidad 2"
           href: unidad2.html
@@ -26,7 +26,7 @@ navbar:
           href: recurso230.html
         - text: "Ejercicios sobre el modelo CNRV"
           href: recurso240.html
-    - text: "Unidad 3"
+    - text: "U3"
       menu:
         - text: "Unidad 3"
           href: unidad3.html
@@ -42,7 +42,7 @@ navbar:
           href: recurso350.html
         - text: "Reducción de dimensionalidad"
           href: recurso360.html            
-    - text: "Unidad 4"
+    - text: "U4"
       menu:
         - text: "Unidad 4"
           href: unidad4.html
@@ -52,7 +52,7 @@ navbar:
           href: recurso420.html   
         - text: "Tableros"
           href: recurso430.html              
-    - text: "Unidad 5"
+    - text: "U5"
       menu:
         - text: "Unidad 5"
           href: unidad5.html
@@ -62,7 +62,7 @@ navbar:
           href: recurso520.html 
         - text: "Identificación de patrones"
           href: recurso50.html               
-    - text: "Unidad 6"
+    - text: "U6"
       menu:
         - text: "Unidad 6"
           href: unidad6.html
@@ -70,7 +70,7 @@ navbar:
           href: recurso610.html
         - text: "Introducción a Python"
           href: recurso620.html   
-    - text: "Referencias"
+    - text: "Ref"
       href: recurso700.html
-    - text: "Proyecto"
+    - text: "Proy"
       href: recurso800.html
