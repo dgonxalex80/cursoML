@@ -1,0 +1,76 @@
+name: ""
+output_dir: "docs"
+navbar:
+  title: " "
+  left:
+    - text: "Curso"
+      icon: fa-home
+      href: index.html  
+    - text: "Unidad 1"
+      menu:
+        - text: "Unidad 1"
+          href: unidad1.html
+        - text: "Conceptos básicos DM y ML"
+          href: recurso110.html
+        - text: "Aplicaciones de DM"
+          href: recurso120.html     
+    - text: "Unidad 2"
+      menu:
+        - text: "Unidad 2"
+          href: unidad2.html
+        - text: "Limpieza"
+          href: recurso210.html
+        - text: "Integración y transformación"
+          href: recurso220.html   
+        - text: "Análisis exploratorio"
+          href: recurso230.html
+        - text: "Ejercicios sobre el modelo CNRV"
+          href: recurso240.html
+    - text: "Unidad 3"
+      menu:
+        - text: "Unidad 3"
+          href: unidad3.html
+        - text: "Regresión lineal"
+          href: recurso310.html
+        - text: "Árboles de decisión"
+          href: recurso320.html   
+        - text: "Random Forest"
+          href: recurso330.html
+        - text: "Support Vector Machines"
+          href: recurso340.html
+        - text: "Agrupamiento"
+          href: recurso350.html
+        - text: "Reducción de dimensionalidad"
+          href: recurso360.html            
+    - text: "Unidad 4"
+      menu:
+        - text: "Unidad 4"
+          href: unidad4.html
+        - text: "Visualización"
+          href: recurso410.html
+        - text: "Gráficos básicos"
+          href: recurso420.html   
+        - text: "Tableros"
+          href: recurso430.html              
+    - text: "Unidad 5"
+      menu:
+        - text: "Unidad 5"
+          href: unidad5.html
+        - text: "Análisis de causa de muertes"
+          href: recurso510.html
+        - text: "Predicción de lesiones"
+          href: recurso520.html 
+        - text: "Identificación de patrones"
+          href: recurso50.html               
+    - text: "Unidad 6"
+      menu:
+        - text: "Unidad 6"
+          href: unidad6.html
+        - text: "Introducción a R"
+          href: recurso610.html
+        - text: "Introducción a Python"
+          href: recurso620.html   
+    - text: "Referencias"
+      href: recurso700.html
+    - text: "Proyecto"
+      href: recurso800.html

@@ -1,0 +1,55 @@
+---
+output:
+  html_document:
+    toc: no
+    toc_depth: 2
+    toc_float: yes
+    code_folding: hide
+    css: style.css
+---
+
+<br/><br/>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+
+# paleta de colores
+
+c1 = "#395A7F"
+c2 = "#6E9FC1"
+c3 = "#A3CAE9"
+c4 = "#EEF4ED"
+c5 = "#ACACAC"
+c6 = "#F98125"
+C7 = "#FB9B50"
+```
+
+
+
+
+```{r, echo=FALSE, out.width="100%", fig.align = "center"}
+knitr::include_graphics("img/banner_referencias.png")
+```
+
+<br/><br/>
+
+
+<br/><br/>
+
+* [Observatorio de Violencia](https://www.medicinalegal.gov.co/observatorio)
+
+* [Cifras preliminares de lesiones de causa externa en Colombia. 2023](https://www.medicinalegal.gov.co/cifras-de-lesiones-de-causa-externa)
+
+* [Información preliminar de lesiones de causa externa y desaparecidos en Colombia. Enero a noviembre de 2023.](https://medicinalegalgovco-my.sharepoint.com/:x:/g/personal/diana_moya_medicinalegal_gov_co/EWK6yChosyZEv3pQeghBIc0BUXRjjmQhj4muYRlpU3Tdpw?e=9mGsyz&download=1)
+
+* [Información preliminar de lesiones fatales de causa externa en Colombia. Enero a noviembre de 2023.](https://medicinalegalgovco-my.sharepoint.com/:x:/g/personal/diana_moya_medicinalegal_gov_co/EbWMJgoGznBImnCSsasS8EgBuk7BsSQKy-wUmkweas6aQw?e=9mGsyz&download=1)
+
+* [Información preliminar de lesiones no fatales de causa externa en Colombia. Enero a noviembre de 2023.](https://medicinalegalgovco-my.sharepoint.com/:x:/g/personal/diana_moya_medicinalegal_gov_co/EdSNy4uObttHnUBo1B8kItUBbxFUa2pcEfPqY_3zCT5-Mw?e=9mGsyz&download=1)
+
+* [Información preliminar sobre desaparecidos en Colombia y en el Extranjero. Enero a noviembre de 2023.](https://medicinalegalgovco-my.sharepoint.com/:x:/g/personal/diana_moya_medicinalegal_gov_co/EUWOCJ4y03hMqCNPW2csEoIBlAp6JHoP7AqPkI3U0YcmIA?e=9mGsyz&download=1)
+
+
+[Indicadores de infancia, adolescencia y juventud](https://www.medicinalegal.gov.co/indicadores-procuraduria)
+
+
+

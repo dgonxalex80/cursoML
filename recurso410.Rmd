@@ -1,0 +1,33 @@
+---
+title: <span style="color:#034a94">**Herramientas de visualización de datos**</span> 
+subtitle: "Unidad 4"
+author: "Manejo base de datos sobre violencia"
+date: " "
+output:
+  html_document:
+    toc: no
+    toc_depth: 2
+    toc_float: yes
+    code_folding: hide
+    css: style.css
+---
+
+<br/><br/>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+
+# paleta de colores
+
+c1 = "#395A7F"
+c2 = "#6E9FC1"
+c3 = "#A3CAE9"
+c4 = "#EEF4ED"
+c5 = "#ACACAC"
+c6 = "#F98125"
+C7 = "#FB9B50"
+```
+
+
+
+<br/><br/>
