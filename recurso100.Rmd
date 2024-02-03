@@ -31,3 +31,4 @@ C7 = "#FB9B50"
 
 # <span style="color:#034a94">**Introducción a la mineria de datos**</span> 
 <br/><br/>
+

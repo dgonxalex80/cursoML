@@ -1,0 +1,120 @@
+---
+title: <span style="color:red">**USA Arrests**
+author: "ElenaVela_A01283535"
+date: "2022-09-05"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: united
+    highlight: tango
+    code_download: true
+---
+
+## <span style="color:red">Crímenes en Estados Unidos, un análisis por estados. </span>
+
+<img src="/Users/elenavela/Downloads/rape.gif">
+
+
+## Leer archivo US Arrests
+```{r}
+#file.choose()
+bd<-read.csv("/home/deg/Documentos/Javeriana/Educon/repository/cursoML/data/USArrests.csv")
+
+```
+
+### Herramienta "El generador de valor de datos"
+***Paso 1.* Definir el área del negocio que buscamos impactar o mejorar y su KPI.**   
+Lo que se busca impactar son los índices de crímenes en diferentes estados de Estados Unidos de América. Es decir, se busca reducir la cantidad de crímenes en los estados que más tengan (de acuerdo a la base de datos).  
+***Paso 2.* Seleccionar la plantilla (-s) para crear valor a partir de los datos de los clientes.**  
+Vision | ***Segmentacion*** | Personalización | Contextualizacion  
+***Paso 3.* Generar ideas o conceptos específicos.**  
+Crear segmentos de los estados, en donde se puedan ver los estados *generalmente* más seguros y menos seguros.  
+***Paso 4.* Reunir los datos requeridos.**   
+Los datos requeridos se tienen en la base de datos que se ha importado, lo que se desea ahora hacer son los *clusters* o los segmentos, y seguir desde ahí.  
+***Paso 5.* Plan de ejecucion.**  
+Se tomará un estado de los más peligrosos como piloto, con el fin de aplicar estrategías de seguridad para los ciudadanos; igualmente, se sugiere observar las estrategias **ya** implementadas en algunos de los estados más seguros para poder replicar y observar resultados.
+
+## k-means Clustering
+
+### Paso 0. Se elimina la columna X
+
+```{r}
+bd2<- bd
+rownames(bd2)<-bd2$X
+
+summary(bd2)
+
+bd3<-bd2
+bd3<-subset(bd3,select=-c(X))
+
+summary(bd3)
+boxplot(bd3)
+```
+
+Se asume que se pueden dejar los valores "fuera de lo normal"
+
+### Paso 1. Normalizar variables
+
+```{r}
+bd4 <- bd3
+bd4 <- as.data.frame(scale(bd3))
+```
+
+### Paso 2. k-means Clustering
+```{r}
+segmentos <- kmeans(bd4, 4)
+segmentos
+
+asignacion <- cbind(bd3, cluster = segmentos$cluster)
+head(asignacion,10)
+```
+
+### Exportar csv
+```{r}
+write.csv(asignacion,"crimenes_segmentados.csv")
+```
+
+### Visualizar Segmentos
+```{r}
+#install.packages("factoextra")
+library(factoextra)
+fviz_cluster(segmentos, data = bd4,
+             palette=c("darkgreen", "red", "black", "blue"),
+             ellipse.type = "euclid",
+             star.plot = T,
+             repel = T,
+             ggtheme = theme())
+
+```
+
+
+### Optimizar k
+
+```{r}
+library(cluster)
+library(data.table)
+
+set.seed(123)
+optimizacion <- clusGap(bd4, FUN = kmeans, nstart = 25, K.max = 10, B = 50)
+plot(optimizacion, xlab = "Numero de clusters k")
+```
+
+
+### Conclusiones
+
+Este código permite al usuario conocer, de manera segmentada, cuáles son los estados más seguros, e inseguros, de Estados Unidos. Este tipo de resultados pueden resultar de gran ayuda al momento de querer viajar al país vecino.  
+
+Primeramente, es necesario eliminar la columna x con el fin de solo tener registros numéricos y facilitar el análisis. Después de normalizar las variables, es posible empezar a segmentar.  
+
+Al segmentar los diferentes crímenes, como violaciones, asesinatos, etc., logramos graficar los diferentes segmentos de estados con relación a su seguridad.  
+
+Mediante las funciones que permite usar R, pudimos llegar a diferentes conclusiones sobre la seguridad vista en los estados mediante el cluster plot:  
+1.  Los estados más seguros se encuentran sobre todo en la zona norte de Estados Unidos. Incluyen: West Virginia, Vermont, North Dakota and South Dakota, Idaho, Maine, New Hampshire, Iowa, Wisconsin, y Minnesota.  
+<img src="/Users/elenavela/Downloads/amCharts.png">  
+2. Algunos de los estados más inseguros incluyen: Mississippi, North and South Carolina, Georgia, California, New York, California, Florida, etc. Todos los estados podrán verse en el siguiente mapa.  
+<img src="/Users/elenavela/Downloads/amCharts (1).png">   
+
+Ahora, con la información obtenida sobre los estados más y menos inseguros, es posible aplicar la herramienta "Generador de Valor de Datos". Podría tomarse un estado inseguro, como Georgia, y aplicarse nuevas estrategias de seguridad social u otras que ya hayan sido aplicadas en ciertos estados, como en Maine.
+
+
