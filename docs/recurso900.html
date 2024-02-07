@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>recurso900.knit</title>
+
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"> </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Curso
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    U1
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="unidad1.html">Unidad1</a>
+    </li>
+    <li>
+      <a href="recurso110.html">Conceptos básicos DM y ML</a>
+    </li>
+    <li>
+      <a href="recurso120.html">Aplicaciones de DM</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    U2
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="unidad2.html">Unidad 2</a>
+    </li>
+    <li>
+      <a href="recurso210.html">Limpieza</a>
+    </li>
+    <li>
+      <a href="recurso220.html">Integración y transformación</a>
+    </li>
+    <li>
+      <a href="recurso230.html">Análisis exploratorio</a>
+    </li>
+    <li>
+      <a href="recurso240.html">Ejercicios sobre el modelo CNRV</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    U3
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="unidad3.html">Unidad 3</a>
+    </li>
+    <li>
+      <a href="recurso310.html">Regresión lineal</a>
+    </li>
+    <li>
+      <a href="recurso320.html">Árboles de decisión</a>
+    </li>
+    <li>
+      <a href="recurso330.html">Random Forest</a>
+    </li>
+    <li>
+      <a href="recurso340.html">Support Vector Machines</a>
+    </li>
+    <li>
+      <a href="recurso350.html">Agrupamiento</a>
+    </li>
+    <li>
+      <a href="recurso360.html">Reducción de dimensionalidad</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    U4
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="unidad4.html">Unidad 4</a>
+    </li>
+    <li>
+      <a href="recurso410.html">Visualización</a>
+    </li>
+    <li>
+      <a href="recurso420.html">Gráficos básicos</a>
+    </li>
+    <li>
+      <a href="recurso430.html">Tableros</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    U5
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="unidad5.html">Unidad 5</a>
+    </li>
+    <li>
+      <a href="recurso510.html">Análisis de causa de muertes</a>
+    </li>
+    <li>
+      <a href="recurso520.html">Predicción de lesiones</a>
+    </li>
+    <li>
+      <a href="recurso50.html">Identificación de patrones</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    U6
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="unidad6.html">Unidad 6</a>
+    </li>
+    <li>
+      <a href="recurso900.html">Introducción a R</a>
+    </li>
+    <li>
+      <a href="recurso620.html">Introducción a Python</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="recurso700.html">Ref</a>
+</li>
+<li>
+  <a href="recurso800.html">Proy</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+
+</div>
+
+
+<p><br/><br/></p>
+<p><br/><br/></p>
+<div id="introducción-a-r---rstudio" class="section level1">
+<h1><strong>Introducción a R - RStudio</strong></h1>
+<p><br/><br/></p>
+<p><img src="img/logoR.png" width="15%" style="display: block; margin: auto auto auto 0;" /></p>
+<p><br/><br/></p>
+</div>
+<div id="que-es-r" class="section level1">
+<h1><strong>Que es R</strong></h1>
+<p><br/></p>
+<p>Es un lenguaje para la computación estadística, utilizado para el
+procesamiento de información y generación de modelos estadísticos. Entre
+las principales caractarísticas estan:</p>
+<ul>
+<li><p>Licencia (GNU GPL) abierta y gratis</p></li>
+<li><p>Creciente popularidad en ciencia de datos</p></li>
+<li><p>Multipalataforma (UNIX, Windows, MacOS)</p></li>
+<li><p>Ross Ihaka y Robert Gentieman (U.Auckland - Nueva Zelanda)
+1993</p></li>
+<li><p>Lenguaje multiparadigma</p></li>
+<li><p>Codigo construido en C y Fortran</p></li>
+<li><p>Gran comunidad muy activa</p></li>
+<li><p>Mas de 7000 paquetes</p></li>
+</ul>
+<p><br/><br/></p>
+<p><img src="img/Rt.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><br/></p>
+<p>En el siguiente enlace se pueden obtener los archivos para su
+instalación : <a href="https://www.r-project.org/"
+class="uri">https://www.r-project.org/</a></p>
+<p><br/><br/><br/></p>
+<p><img src="img/logoRStudio.png" width="20%" style="display: block; margin: auto auto auto 0;" /></p>
+<p><br/></p>
+<p>Podemos usar este lenguaje utilizando una terminal o mediante la IDE
+<strong>RStudio</strong>, la cual integra un conjunto de herramientas
+que facilitan el uso R a los usuarios</p>
+<p>Esta interfaz esta conformada por varias ventana como se muestra en
+la siguiente imagen</p>
+<p><br/></p>
+<p><img src="img/VRStudio.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><br/></p>
+<ol style="list-style-type: decimal">
+<li><p>Fuente (Source) : Ventana donde se trabajan los script con código
+que se guardan para posterior utilización</p></li>
+<li><p>Consola (Console) : Ventana donde se pueden escribir comandos de
+manera directa</p></li>
+<li><p>Ambiente (Environment) : Ventana donde se pueden observar las
+varables y objetos creados</p></li>
+<li><p>Archivos (Files) : Ventana que muestra el directorio y los
+archivos en el que estamos trabajando</p></li>
+<li><p>Graficos (plots) : Ventana que presenta los gráficos
+construidos</p></li>
+<li><p>Paquetes (Packages) : Ventana que permite instalar los paquetes
+requeridos</p></li>
+<li><p>Ayudas (Help) : Ventana en la que podemos pedir ayuda sobre las
+sintaxis de funciones</p></li>
+</ol>
+<p><br/><br/></p>
+<p>En los siguientes enlaces se pueden descargar los programas :</p>
+<ul>
+<li><p><a href="https://cran.r-project.org/">R download</a></p></li>
+<li><p><a href="https://rstudio.com/products/rstudio/download/">RStudio
+download</a></p></li>
+</ul>
+<p><br/><br/><br/></p>
+<div id="rstudio-cloud" class="section level2">
+<h2><strong>RStudio Cloud</strong></h2>
+<p><img src="img/RStudio_Cloud.png" width="30%" style="display: block; margin: auto auto auto 0;" /></p>
+<p><br/></p>
+<p><strong>RStudio Cloud</strong> es una plataforma online que te
+permite realizar análisis de datos y desarrollo de software en RStudio,
+sin necesidad de instalar software o configurar tu propio entorno.
+Puedes acceder a ella desde cualquier navegador web, lo que la convierte
+en una opción ideal para quienes no tienen un ordenador potente o que
+necesitan trabajar en equipo.</p>
+<p><br/><br/></p>
+<div id="ventajas" class="section level3">
+<h3><strong>Ventajas</strong></h3>
+<ul>
+<li><p><strong>Accesibilidad:</strong> Puedes acceder a RStudio Cloud
+desde cualquier lugar con conexión a internet.</p></li>
+<li><p><strong>Facilidad de uso:</strong> No necesitas instalar software
+ni configurar tu propio entorno.</p></li>
+<li><p><strong>Potente:</strong> Ofrece acceso a una amplia gama de
+herramientas de análisis de datos y desarrollo de software.</p></li>
+<li><p><strong>Colaboración:</strong> Puedes compartir tus proyectos con
+otros usuarios y trabajar en ellos de forma colaborativa.</p></li>
+</ul>
+<p><br/><br/></p>
+</div>
+</div>
+<div id="instalación" class="section level2">
+<h2><strong>Instalación</strong></h2>
+<p><br/></p>
+<p>Al ser una plataforma online, no hay que instalar RStudio Cloud en tu
+ordenador. Solo tienes que seguir estos pasos:</p>
+<p><br/></p>
+<div id="creación-de-una-cuenta-en-rstudio-cloud"
+class="section level4">
+<h4><strong>Creación de una cuenta en RStudio Cloud</strong></h4>
+<ol style="list-style-type: decimal">
+<li>Crea una cuenta gratuita en <a href="https://posit.cloud/"
+class="uri">https://posit.cloud/</a>.</li>
+<li>Elige un plan que se ajuste a tus necesidades. Hay planes gratuitos
+y de pago.</li>
+<li>Inicia sesión en RStudio Cloud.</li>
+<li>Crea un nuevo proyecto o abre un proyecto existente</li>
+</ol>
+<p><br/></p>
+<p>Una vez que hayas creado un proyecto, puedes empezar a trabajar en él
+de inmediato. RStudio Cloud te ofrece una interfaz similar a la de
+RStudio Desktop, por lo que te resultará familiar si ya has utilizado
+RStudio antes.</p>
+<p><br/></p>
+<p>Para ejecutar código R, simplemente escribe el código en el editor de
+código y haz clic en el botón “Ejecutar”. También puedes usar los atajos
+de teclado de RStudio para ejecutar código.</p>
+<p><br/><br/></p>
+</div>
+<div id="clonar-un-repositorio-de-github-en-rstudio-cloud"
+class="section level3">
+<h3><strong>Clonar un repositorio de GitHub en RStudio
+Cloud</strong></h3>
+<p><strong>En GitHub:</strong></p>
+<ul>
+<li>Accede al repositorio que deseas clonar.</li>
+<li>Copia la URL del repositorio. Puedes encontrarla en la barra de
+direcciones del navegador. (<a
+href="https://github.com/dgonxalex80/seminarioML.git"
+class="uri">https://github.com/dgonxalex80/seminarioML.git</a>)</li>
+</ul>
+<p><strong>En RStudio Cloud:</strong></p>
+<ul>
+<li>Inicia sesión en tu cuenta de RStudio Cloud.</li>
+<li>Haz clic en “Nuevo proyecto”.</li>
+<li>Selecciona la opción “Desde Git”.</li>
+<li>Pega la URL del repositorio que copiaste en el campo “URL del
+repositorio”.</li>
+<li>Introduce un nombre para tu proyecto - opciopnal.</li>
+<li>Haz clic en “Clonar”.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -382,7 +382,7 @@ $(document).ready(function () {
       <a href="unidad6.html">Unidad 6</a>
     </li>
     <li>
-      <a href="recurso610.html">Introducción a R</a>
+      <a href="recurso900.html">Introducción a R</a>
     </li>
     <li>
       <a href="recurso620.html">Introducción a Python</a>
@@ -425,6 +425,239 @@ style="color:#034a94"><strong>Limpieza de datos</strong></span></h1>
 
 <p><br/><br/></p>
 <p><br/><br/></p>
+<div id="preparación-de-datos-en-md-y-cd" class="section level1">
+<h1><span style="color:#0E9183"><strong>Preparación de Datos en MD y
+CD</strong></span></h1>
+<p><br/><br/></p>
+<p>El proceso de preparación de datos esta inmerso dentro del proceso de
+ciencia de datos, constituyendo sus tres primeras etapas</p>
+<p><img src="img/proceso_datos2.png" width="80%" style="display: block; margin: auto;" /></p>
+<center>
+<sub> Tomado de : <a
+href="https://bitsandbricks.github.io/ciencia_de_datos_gente_sociable/qu%C3%A9-es-la-ciencia-de-datos.html">Ciencia
+de Datos para Gente Sociable</a> </sub>
+</center>
+<p><br/><br/></p>
+</div>
+<div id="introducción" class="section level1">
+<h1><span
+style="color:#0E9183"><strong>Introducción</strong></span></h1>
+<p><br/></p>
+<p>La preparación de datos es una fase esencial en el ciclo de vida de
+la minería de datos y la ciencia de datos. Aunque a menudo se subestima,
+la calidad de los resultados de análisis y modelos depende en gran
+medida de la calidad de los datos utilizados.</p>
+<p><br/><br/></p>
+</div>
+<div id="importancia-de-la-preparación-de-datos" class="section level1">
+<h1><span style="color:#0E9183"><strong>Importancia de la Preparación de
+Datos</strong></span></h1>
+<p>Dentro de las principales razones por las que debe tener en cuenta la
+preparación de los datos en un proyecto de ciencia de datos estan:</p>
+<p><br/><br/></p>
+<div id="calidad-de-los-datos" class="section level2">
+<h2><span style="color:#0E9183"><strong>Calidad de los
+Datos</strong></span></h2>
+<p>La calidad de los datos es muy importante para obtener resultados
+precisos y confiables. La preparación de datos aborda problemas como
+datos faltantes (NA), duplicados, errores y valores atípicos. Si estos
+problemas son tratados adecuadamente se mejora la calidad general de los
+datos.</p>
+<p><br/><br/></p>
+</div>
+<div id="consistencia" class="section level2">
+<h2><span
+style="color:#0E9183"><strong>Consistencia</strong></span></h2>
+<p>La consistencia en la estructura y formato de los datos facilita su
+interpretación y análisis. La preparación de datos garantiza que los
+datos sean coherentes y cumplan con estándares definidos. La estructura
+se puede representar como una matriz formada por filas que representan
+los registros de un objeto o persona y por columnas que reprsentan las
+caracteristicas o variables.</p>
+<p><br/><br/></p>
+</div>
+<div id="mejora-del-rendimiento-del-modelo" class="section level2">
+<h2><span style="color:#0E9183"><strong>Mejora del Rendimiento del
+Modelo</strong></span></h2>
+<p>Los modelos de minería de datos y aprendizaje automático dependen de
+datos de alta calidad. Una preparación adecuada puede mejorar el
+rendimiento del modelo al proporcionar entradas más relevantes y
+precisas. En este caso los modelos requieren de un tipo de variables
+(categóricas, numéricas, dicótomas,..) que deben estar definidos en la
+base de datos a emplear</p>
+<p><br/><br/><br/></p>
+</div>
+</div>
+<div id="etapas-de-la-preparación-de-datos" class="section level1">
+<h1><span style="color:#0E9183"><strong>Etapas de la Preparación de
+Datos</strong></span></h1>
+<p><br/><br/></p>
+<p><img src="img/preparacion_datos.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><br/><br/></p>
+<div id="recopilación-de-datos" class="section level2">
+<h2><span style="color:#0E9183"><strong>Recopilación de
+Datos</strong></span></h2>
+<p>En esta fase, se adquieren los datos desde diversas fuentes. Esto
+puede incluir bases de datos, archivos CSV, API web, entre otros. Es
+fundamental comprender la naturaleza de los datos y los requisitos
+específicos del problema.</p>
+<p><br/><br/></p>
+</div>
+<div id="exploración-de-datos" class="section level2">
+<h2><span style="color:#0E9183"><strong>Exploración de
+Datos</strong></span></h2>
+<p>Antes de la limpieza, se realiza una exploración inicial para
+comprender la distribución de los datos, identificar patrones y
+visualizar posibles relaciones. Esta fase ayuda a diseñar estrategias
+efectivas de preparación.</p>
+<p><br/><br/></p>
+</div>
+<div id="limpieza-de-datos" class="section level2">
+<h2><span style="color:#0E9183"><strong>Limpieza de
+Datos</strong></span></h2>
+<p>La limpieza aborda problemas como valores nulos, duplicados y
+errores. Se aplican técnicas como imputación de datos faltantes,
+eliminación de duplicados y corrección de errores para asegurar la
+coherencia de los datos.</p>
+<p><br/><br/></p>
+</div>
+<div id="transformación-de-datos" class="section level2">
+<h2><span style="color:#0E9183"><strong>Transformación de
+Datos</strong></span></h2>
+<p>La transformación incluye la conversión de datos en un formato
+adecuado para el análisis. Esto puede involucrar normalización,
+codificación de variables categóricas y creación de nuevas
+características derivadas.</p>
+<p><br/><br/></p>
+</div>
+<div id="integración-de-datos" class="section level2">
+<h2><span style="color:#0E9183"><strong>Integración de
+Datos</strong></span></h2>
+<p>Cuando se utilizan múltiples fuentes de datos, es crucial integrarlos
+de manera coherente. Esto implica combinar conjuntos de datos, manejar
+redundancias y asegurar la consistencia entre ellos.</p>
+<p><br/><br/></p>
+</div>
+<div id="organización-de-datos" class="section level2">
+<h2><span style="color:#0E9183"><strong>Organización de
+Datos</strong></span></h2>
+<p>La organización implica estructurar los datos de manera que sean
+accesibles y eficientes para el análisis posterior. Se crean conjuntos
+de datos de entrenamiento y prueba, y se establecen divisiones
+adecuadas.</p>
+<p><br/><br/></p>
+</div>
+</div>
+<div id="herramientas-y-técnicas" class="section level1">
+<h1><span style="color:#0E9183"><strong>Herramientas y
+Técnicas</strong></span></h1>
+<p><br/><br/></p>
+<div id="software-de-preparación-de-datos" class="section level2">
+<h2><span style="color:#0E9183"><strong>1. Software de Preparación de
+Datos</strong></span></h2>
+<p>Herramientas como Python y RStudio-R, simplifican las tareas de
+preparación de datos mediante múmltiples paquetes y funciones.</p>
+<p><br/><br/></p>
+</div>
+<div id="técnicas-de-imputación" class="section level2">
+<h2><span style="color:#0E9183"><strong>2. Técnicas de
+Imputación</strong></span></h2>
+<p>La imputación de datos faltantes puede realizarse mediante técnicas
+como remplazar los datos faltantes por cero,</p>
+<p>la media, la mediana o algoritmos más avanzados como k-vecinos más
+cercanos (KNN).</p>
+<p><br/><br/></p>
+</div>
+<div id="normalización-y-estandarización" class="section level2">
+<h2><span style="color:#0E9183"><strong>3. Normalización y
+Estandarización</strong></span></h2>
+<p>Estas técnicas son esenciales para asegurar que las variables tengan
+la misma escala, evitando que algunas variables dominen sobre otras en
+el análisis.</p>
+<p><br/><br/><br/><br/></p>
+</div>
+</div>
+<div id="conceptos-adicionales" class="section level1">
+<h1><span style="color:#0E9183"><strong>Conceptos
+adicionales</strong></span></h1>
+<p><br/></p>
+</div>
+<div id="base-de-datos" class="section level1">
+<h1><span style="color:#0E9183"><strong>Base de
+datos</strong></span></h1>
+<p><strong>base de datos</strong> puede referirse a un conjunto de datos
+organizado en un arreglo de filas y columnas, comúnmente conocido como
+un “conjunto de datos” o “tabla de datos”. Este arreglo estructurado
+facilita la manipulación y análisis de datos. De forma general una base
+de datos está formada por <code>n</code> filas y <code>m</code> columnas
+(dimensión <code>n x m</code>).</p>
+<p><img src="img/base_datos.png" width="30%" style="display: block; margin: auto;" /></p>
+<p><br/><br/></p>
+<div id="variable" class="section level2">
+<h2><span style="color:#0E9183"><strong>Variable</strong></span></h2>
+<p>Cada columna en la base de datos representa una variable. Estas
+variables pueden ser características, medidas o atributos relacionados
+con el fenómeno que se está estudiando y estan representadas por las
+líneas azules (<span class="math inline">\(\text{Var}_1\)</span>, <span
+class="math inline">\(\text{Var}_2\)</span>,<span
+class="math inline">\(\dots \dots\)</span>, <span
+class="math inline">\(\text{Var}_j\)</span>,<span
+class="math inline">\(\dots\)</span>, <span
+class="math inline">\(\text{Var}_m\)</span>)</p>
+<p><br/><br/></p>
+</div>
+<div id="observaciones" class="section level2">
+<h2><span
+style="color:#0E9183"><strong>Observaciones</strong></span></h2>
+<p>Cada fila en la base de datos corresponde a una observación o unidad
+individual. Dependiendo del contexto, una observación puede representar
+un individuo, una ciudad, un evento, una medición, entre otras. Por lo
+general se emplea una variables (<code>ID</code>) que permite
+identificar la unidad que origina la información que va desde <span
+class="math inline">\(1, 2, 3, \dots \dots n\)</span></p>
+<p><br/><br/></p>
+</div>
+<div id="datos" class="section level2">
+<h2><span style="color:#0E9183"><strong>Datos</strong></span></h2>
+<p>Es una unidad básica de información que se recopila, registra o
+representa. Los datos son observaciones o medidas que pueden ser
+cuantitativas o cualitativas y que se utilizan para realizar análisis,
+interpretaciones y toma de decisiones. Un dato en particular se
+representa por <span class="math inline">\(x_{ij}\)</span>, lo cual
+indica que pertenece a la unidad <span class="math inline">\(i\)</span>
+y a la variable <span class="math inline">\(\text{Var}_j\)</span></p>
+<p>Hay dos tipos principales de datos:</p>
+<p><br/></p>
+<p><strong>Datos Cuantitativos</strong>: Estos datos representan
+cantidades numéricas y se expresan en términos de números.</p>
+<p><br/></p>
+<p><strong>Datos Cualitativos</strong>: Estos datos representan
+características no numéricas y se expresan en términos de
+categorías.</p>
+<p><br/><br/></p>
+</div>
+<div id="datos-faltantes" class="section level2">
+<h2><span style="color:#0E9183"><strong>Datos
+faltantes</strong></span></h2>
+<p>La base de datos puede contener valores faltantes (<code>NA</code>),
+los cuales requeren de tratamientos como su exclusión o de técnicas como
+la imputación para su manejo durante el análisis de datos.</p>
+<p><br/><br/></p>
+</div>
+<div id="valores-atípicos" class="section level2">
+<h2><span style="color:#0E9183"><strong>Valores
+atípicos</strong></span></h2>
+<p>Son observaciones inusuales o extremas en un conjunto de datos que se
+desvían significativamente del patrón general de la muestra. Estos
+valores atípicos o tambien llamados <code>outliers</code>, pueden tener
+un impacto importante en el análisis de los datos, ya que pueden
+distorsionar los resultados y afectar la interpretación de los
+datos.</p>
+<p><br/><br/><br/><br/></p>
+<p><!-- https://www.kaggle.com/datasets/beelzabi/crimen-mx?resource=download --></p>
+<p><!-- https://data.world/datasets/crime --></p>
+</div>
+</div>
 
 
 

@@ -1,5 +1,4 @@
 ---
-
 date: " "
 output:
   html_document:
@@ -17,15 +16,15 @@ knitr::opts_chunk$set(echo = TRUE, comment = NA)
 
 # paleta de colores
 
-c1 = "#395A7F"
-c2 = "#6E9FC1"
-c3 = "#A3CAE9"
-c4 = "#EEF4ED"
-c5 = "#ACACAC"
-c6 = "#F98125"
-C7 = "#FB9B50"
-```
+c1 ="#3B566E"  # azul oscuro- color primario 
+c2 ="#6487A5"  # azul claro- color secundario
+c3 ="#2ED199"  # verdeclaro - color terciario
+c4 ="#F2F2F2"  # gris muy claro - color texto
+c5 ="#8DA9C4"  # azul claro 
+c6= "#04BA80"  # verde claro
+c7= "#0E9183"  # verde oscuro
 
+```
 
 
 

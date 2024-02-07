@@ -67,10 +67,12 @@ navbar:
         - text: "Unidad 6"
           href: unidad6.html
         - text: "Introducción a R"
-          href: recurso610.html
+          href: recurso900.html
         - text: "Introducción a Python"
           href: recurso620.html   
     - text: "Ref"
       href: recurso700.html
     - text: "Proy"
       href: recurso800.html
+      
+      

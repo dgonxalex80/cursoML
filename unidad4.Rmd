@@ -11,11 +11,13 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, comment = NA)
-
-c1 ="#FF7F00"  # naranja - color primario 
-c2 ="#034A94"  # azul oscuro - color secundario
-c3 ="#0EB0C6"  # azul claro - color terciario
-c4 ="#686868"  # gris - color texto
+c1 ="#3B566E"  # azul oscuro- color primario 
+c2 ="#6487A5"  # azul claro- color secundario
+c3 ="#2ED199"  # verdeclaro - color terciario
+c4 ="#F2F2F2"  # gris muy claro - color texto
+c5 ="#8DA9C4"  # azul claro 
+c6= "#04BA80"  # verde claro
+c7= "#0E9183"  # verde oscuro
 ```
 
 
