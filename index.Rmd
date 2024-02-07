@@ -69,7 +69,7 @@ knitr::include_graphics("img/banner01.png")
 
 ### <span style="color:#0E9183">**Unidad 4: **</span>  
 
-#### <span style="color:#0E9183">**Visalización de datos**</span>
+### <span style="color:#0E9183">**Visalización de datos**</span>
 
 * **Herramientas de visualización de dato**
 * **Gráficos básicos**

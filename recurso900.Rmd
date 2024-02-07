@@ -184,3 +184,8 @@ Para ejecutar código R, simplemente escribe el código en el editor de código 
 * Pega la URL del repositorio que copiaste en el campo "URL del repositorio".
 * Introduce un nombre para tu proyecto - opciopnal.
 * Haz clic en "Clonar".
+
+
+
+### **Importar datos**
+

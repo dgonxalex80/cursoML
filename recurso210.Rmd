@@ -109,6 +109,16 @@ knitr::include_graphics("img/preparacion_datos.png")
 
 En esta fase, se adquieren los datos desde diversas fuentes. Esto puede incluir bases de datos, archivos CSV, API web, entre otros. Es fundamental comprender la naturaleza de los datos y los requisitos específicos del problema.
 
+<br/>
+
+### **Importar datos**
+
+* Captura directa de fuentes primarias en una hoja electrónica compartida
+* Disponible en datos abiertos en formatos csv, xlsx - informacioón secundaria
+* Recoleccción de información mediante técnicas automáicas - webscraping 
+* De manea automática, mediante el empleo de tokes 
+* ....
+
 <br/><br/>
 
 ## <span style="color:#0E9183">**Exploración de Datos**</span> 
