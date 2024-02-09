@@ -27,7 +27,7 @@ c7= "#0E9183"  # verde oscuro
 
 <br/><br/>
 
-# **Introducción a R - RStudio**
+# <span style="color:#0E9183">**Introducción a R - RStudio**</span>
 
 <br/><br/>
 
@@ -38,7 +38,7 @@ knitr::include_graphics("img/logoR.png")
 
 <br/><br/>
 
-# **Que es R** 
+# <span style="color:#0E9183">**Que es R**</span> 
 
 <br/>
 
@@ -119,7 +119,7 @@ En los siguientes enlaces se pueden descargar los programas :
 
 <br/><br/><br/>
 
-## **RStudio Cloud**
+## <span style="color:#0E9183">**RStudio Cloud**</span>
 
 ```{r, echo=FALSE, out.width="30%", fig.align ='left'}
 knitr::include_graphics("img/RStudio_Cloud.png")
@@ -151,7 +151,9 @@ Al ser una plataforma online, no hay que instalar RStudio Cloud en tu ordenador.
 
 <br/>
 
-#### **Creación de una cuenta en RStudio Cloud**
+## <span style="color:#0E9183">**Creación de una cuenta en RStudio Cloud**</span>
+
+<br/>
 
 1. Crea una cuenta gratuita en https://posit.cloud/.
 2. Elige un plan que se ajuste a tus necesidades. Hay planes gratuitos y de pago.
@@ -168,15 +170,30 @@ Para ejecutar código R, simplemente escribe el código en el editor de código 
 
 <br/><br/>
 
-### **Clonar un repositorio de GitHub en RStudio Cloud**
+## <span style="color:#0E9183">**Clonar un repositorio de GitHub en RStudio Cloud**</span>
 
+<br/><br/>
 
-**En GitHub:**
+### <span style="color:#0E9183">**En nuestro computador de escritorio o portatil**</span>
 
+<br/><br/>
+
+### <span style="color:#0E9183">**Creación de una cuenta en RStudio Cloud**</span>
+
+<br/>
+
+1. Crea una cuenta gratuita en https://posit.cloud/.
+2. Elige un plan que se ajuste a tus necesidades. Hay planes gratuitos y de pago.
+3. Inicia sesión en RStudio Cloud.
+4. Crea un nuevo proyecto o abre un proyecto existente
 * Accede al repositorio que deseas clonar.
 * Copia la URL del repositorio. Puedes encontrarla en la barra de direcciones del navegador. (https://github.com/dgonxalex80/seminarioML.git)
 
-**En RStudio Cloud:**
+<br/><br/>
+
+### <span style="color:#0E9183">**En RStudio Cloud:**</span
+
+<br/>
 
 * Inicia sesión en tu cuenta de RStudio Cloud.
 * Haz clic en "Nuevo proyecto".
@@ -185,7 +202,6 @@ Para ejecutar código R, simplemente escribe el código en el editor de código 
 * Introduce un nombre para tu proyecto - opciopnal.
 * Haz clic en "Clonar".
 
+<br/><br/>
 
-
-### **Importar datos**
-
+### <span style="color:#0E9183">**Importar datos**</span>

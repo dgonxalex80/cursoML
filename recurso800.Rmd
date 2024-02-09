@@ -63,13 +63,11 @@ knitr::include_graphics("img/banner_proyecto.png")
 
 <br/>
 
-En equipos de hasta tres participantes, se llevará a cabo un proyecto basado en las instrucciones y enfoques presentados durante el seminario. El objetivo es producir un producto final que será presentado y discutido en la última sesión del curso.
+En equipos de hasta tres participantes, se llevará a cabo un proyecto basado en las instrucciones y enfoques presentados durante el seminario. El objetivo será construir un producto final (poster, tablero, infografía,.. )que será presentado y discutido en la última sesión del curso.
 
 <br/>
 
 Los resultados del proyecto se presentarán de forma oral, con un límite de tiempo de 10 minutos por equipo.
-
-
 
 <br/><br/><br/>
  

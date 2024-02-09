@@ -68,6 +68,9 @@ navbar:
           href: unidad6.html
         - text: "Introducción a R"
           href: recurso900.html
+        - text: "Construcción de un proyecto en R"
+          href: recurso901.html
+        - text: "--------"  
         - text: "Introducción a Python"
           href: recurso620.html   
     - text: "Ref"
@@ -75,7 +78,7 @@ navbar:
     - text: "Proy"
       menu:
         - text: "Proyecto"
-          href: recurso900.html
+          href: recurso800.html
         - text: "Practiaca 01"
           href: practica201.html
   
