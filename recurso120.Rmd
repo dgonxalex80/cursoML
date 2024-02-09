@@ -31,8 +31,8 @@ c7= "#0E9183"  # verde oscuro
 
 <br/><br/>
 
-# **Mineria de datos y aprendizaje automático** 
-# **En la Ciencia Forense**
+# <span style="color:#0E9183">**Mineria de datos y aprendizaje automático**</span> 
+# <span style="color:#0E9183">**En la Ciencia Forense**</span>
 
 
 ```{r, echo=FALSE, out.width="70%", fig.align = "center"}
@@ -52,11 +52,11 @@ Para dar solución a estos retos, se hace necesario el uso de tecnología de Int
 
 <br/>
 
-# **EJEMPLOS FAMOSOS**
+# <span style="color:#0E9183">**EJEMPLOS FAMOSOS**</span>
 
 <br/>
 
-## **La invasión al Capitolio en los Estados Unidos** (enero de 2021)
+## <span style="color:#0E9183">**La invasión al Capitolio en los Estados Unidos** (enero de 2021)</span>
 
 <br/>
 
@@ -87,7 +87,7 @@ Estas nuevas fuentes de información propician la transformación en varios camp
 
 <br/><br/>
 
-### **Protocolo**
+### <span style="color:#0E9183">**Protocolo**</span>
 
 <br/>
 
@@ -98,7 +98,7 @@ knitr::include_graphics("img/IAforense.png")
 
 <br/><br/>
 
-### **El bombardeo en la Maratón de Boston** (2013)
+### <span style="color:#0E9183">**El bombardeo en la Maratón de Boston** (2013)</span>
 
 <br/>
 
@@ -108,7 +108,7 @@ Un ejemplo es el bombardeo en la Maratón de Boston cuando dos bombas explotaron
 
 <br/><br/>
 
-# **En general... **
+# <span style="color:#0E9183">**En general... **</span>
 
 Disponer de grandes volúmenes de datos representa una rica fuente de información, su análisis es fundamental pues apoya a los expertos en la comprensión y verificación de los hechos en el mundo físico. 
 
@@ -134,41 +134,41 @@ A pesar de ser herramientas valiosas en el proceso forense, el uso de estas téc
 
 <br/><br/>
 
-# **Fuentes adicionales**
+# <span style="color:#0E9183">**Fuentes adicionales**</span>
 
 <br/>
 
-### **Skopein:** Origen Argentina
+### <span style="color:#0E9183">**Skopein:** Origen Argentina</span>
 
 Revista digital y su nombre, de raíz griega, significa «observar», hace referencia directa a una disciplina desarrollada en la Argentina, la Scopometría, siendo uno de los más grandes aportes de este país a la Criminalística, tratándose del conjunto de procedimientos y métodos que tienen por fin resolver las interrogantes periciales. Cuenta con convocatoria permanente de artículos y además, el equipo de Skopein se encarga de organizar las Jornadas Argentinas de Ciencias Forenses Aplicadas, evento nacional que reúne prestigiosos profesionales relacionados con las ciencias criminalísticas y forenses, dirigido tanto a estudiantes como a profesionales de diversas áreas.
 
 
 <br/><br/>
 
-### **Ciencia del crimen:** Origen Argentina
+### <span style="color:#0E9183">**Ciencia del crimen:** Origen Argentina</span>
 
 Revista que publica casos reales con el aporte que cada profesional hizo desde su perspectiva y especialidad, compartiendo la visión y la experiencia de un grupo de excelentes expertos en análisis e investigación del crimen.
 
 <br/><br/>
 
-### **La Consultora:** Origen Argentina
+### <span style="color:#0E9183">**La Consultora:** Origen Argentina</span>
 
 Equipo de profesionales dedicado a la criminalística y criminología.
 
 <br/><br/>
 
-### **Expresión forense:** Origen México
+### <span style="color:#0E9183">**Expresión forense:** Origen México</span>
 
 La misión de Expresión Forense es divulgar el desarrollo de la ciencia y ayudar a los lectores a adentrarse en la complejidad del conocimiento científico.
 
 <br/><br/>
 
-###  **Revista de Ciencias Forenses de Honduras:**  Origen Honduras
+###  <span style="color:#0E9183">**Revista de Ciencias Forenses de Honduras:**  Origen Honduras</span>
 
 La Revista de Ciencias Forenses de Honduras (RCFH) es el órgano de difusión técnico-cientíﬁco de la Dirección de Medicina Forense del Sector Seguridad y Justicia. Adscrita al Ministerio Público de Honduras, posee un enfoque multidisciplinario e intersectorial.
 
 <br/><br/>
 
-### **Colombia Forense:**  Origen Colombia
+### <span style="color:#0E9183">**Colombia Forense:**  Origen Colombia</span>
 
 Colombia Forense es una revista científica arbitrada, especializada en medicina legal y ciencias forenses, dirigida a investigadores hispanoamericanos.

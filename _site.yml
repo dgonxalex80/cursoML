@@ -73,6 +73,12 @@ navbar:
     - text: "Ref"
       href: recurso700.html
     - text: "Proy"
-      href: recurso800.html
+      menu:
+        - text: "Proyecto"
+          href: recurso900.html
+        - text: "Practiaca 01"
+          href: practica201.html
+  
+      
       
       

@@ -34,7 +34,7 @@ c7= "#0E9183"  # verde oscuro
 <br/><br/>
 
 
-# **Mineria de datos y aprendizaje automático**
+# <span style="color:#0E9183">**Mineria de datos y aprendizaje automático**</span>
 
 
 ```{r, echo=FALSE, out.width="100%", fig.align = "center"}
@@ -64,11 +64,11 @@ knitr::include_graphics("img/Data-Science.png")
 
 <br/><br/>
 
-# **Mineria de datos (data mining)**
+# <span style="color:#0E9183">**Mineria de datos (data mining)**</span>
 
 <br/>
 
-## **Minería de datos vs big data**
+## <span style="color:#0E9183">**Minería de datos vs big data**</span>
 
 Para poder hablar de minería de datos es necesario que exista el big data, pero no son lo mismo. El **data mining** también se conoce como **exploración de datos** y consiste en las técnicas que permiten analizar el grueso de la información para detectar **patrones de conducta y tendencias** que ayuden a las instituciones a tomar decisiones con base a esa información que permanecía escondida.
 
@@ -102,7 +102,7 @@ Los analistas de datos indican que el big data cumple con las características:
 
 <br/><br/>
 
-## **Diferencias**
+## <span style="color:#0E9183">**Diferencias**</span>
 
 - El data mining implica una vista cercana sobre los datos, mientras que en el big data se ocupa de una exploración general de esos datos.
 
@@ -115,7 +115,7 @@ Los analistas de datos indican que el big data cumple con las características:
 
 <div class="content-box-blue">
 
-## **Conclusión** 
+## <span style="color:#0E9183">**Conclusión**</span> 
 
 Data mining y big data utilizan diferentes procedimientos para manejar la información que analizan, pero son procesos complementarios más que antagónicos. Ambos tienen como objetivo transformar una enorme cantidad de datos en información relevantedentro de las instituciones.
 
@@ -124,7 +124,7 @@ Data mining y big data utilizan diferentes procedimientos para manejar la inform
 
 <br/><br/>
 
-## **Aprendizaje automático (machine learning)**
+## <span style="color:#0E9183">**Aprendizaje automático (machine learning)**</span>
 
 <br/>
 

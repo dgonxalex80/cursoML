@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Practica 1</title>
+
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"> </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Curso
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    U1
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="unidad1.html">Unidad1</a>
+    </li>
+    <li>
+      <a href="recurso110.html">Conceptos básicos DM y ML</a>
+    </li>
+    <li>
+      <a href="recurso120.html">Aplicaciones de DM</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    U2
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="unidad2.html">Unidad 2</a>
+    </li>
+    <li>
+      <a href="recurso210.html">Limpieza</a>
+    </li>
+    <li>
+      <a href="recurso220.html">Integración y transformación</a>
+    </li>
+    <li>
+      <a href="recurso230.html">Análisis exploratorio</a>
+    </li>
+    <li>
+      <a href="recurso240.html">Ejercicios sobre el modelo CNRV</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    U3
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="unidad3.html">Unidad 3</a>
+    </li>
+    <li>
+      <a href="recurso310.html">Regresión lineal</a>
+    </li>
+    <li>
+      <a href="recurso320.html">Árboles de decisión</a>
+    </li>
+    <li>
+      <a href="recurso330.html">Random Forest</a>
+    </li>
+    <li>
+      <a href="recurso340.html">Support Vector Machines</a>
+    </li>
+    <li>
+      <a href="recurso350.html">Agrupamiento</a>
+    </li>
+    <li>
+      <a href="recurso360.html">Reducción de dimensionalidad</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    U4
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="unidad4.html">Unidad 4</a>
+    </li>
+    <li>
+      <a href="recurso410.html">Visualización</a>
+    </li>
+    <li>
+      <a href="recurso420.html">Gráficos básicos</a>
+    </li>
+    <li>
+      <a href="recurso430.html">Tableros</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    U5
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="unidad5.html">Unidad 5</a>
+    </li>
+    <li>
+      <a href="recurso510.html">Análisis de causa de muertes</a>
+    </li>
+    <li>
+      <a href="recurso520.html">Predicción de lesiones</a>
+    </li>
+    <li>
+      <a href="recurso50.html">Identificación de patrones</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    U6
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="unidad6.html">Unidad 6</a>
+    </li>
+    <li>
+      <a href="recurso900.html">Introducción a R</a>
+    </li>
+    <li>
+      <a href="recurso620.html">Introducción a Python</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="recurso700.html">Ref</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Proy
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="recurso900.html">Proyecto</a>
+    </li>
+    <li>
+      <a href="practica201.html">Practiaca 01</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore"><span
+style="color:#034a94"><strong>Practica 1</strong></span></h1>
+
+</div>
+
+
+<p><br/><br/></p>
+<div id="introducción" class="section level2">
+<h2><span
+style="color:#0E9183"><strong>Introducción</strong></span></h2>
+<p><br/></p>
+<p>Con el fin de poner en practica lo visto en la sesión, se propone
+replicar las siguientes instrucciones en RStudio, ya se localmente
+(R-RStudio instalados en PC) o en la plataforma RStudio Cloud.</p>
+<p><br/><br/></p>
+</div>
+<div id="desarrollo" class="section level2">
+<h2><span style="color:#0E9183"><strong>Desarrollo</strong></span></h2>
+<p><br/></p>
+<div id="paso-1" class="section level5">
+<h5><span style="color:#6487A5"><strong>Paso 1</strong></span></h5>
+<ul>
+<li>Abra RStudio o RStudio Cloud</li>
+</ul>
+<p><br/><br/></p>
+</div>
+<div id="paso-2" class="section level5">
+<h5><span style="color:#6487A5"><strong>Paso 2</strong></span></h5>
+<ul>
+<li>Cree un nuevo proyecto - Puede llamarlo <strong>seminario</strong>.
+Esto le permitirá tener todos los ejercicio realizados durante el
+seminario en una carpeta</li>
+</ul>
+<p><br/><br/></p>
+</div>
+<div id="paso-3" class="section level5">
+<h5><span style="color:#6487A5"><strong>Paso 3</strong></span></h5>
+<ul>
+<li>Dentro de la carpeta creada por el sistema
+(<strong>seminario</strong>), cree una carpeta llamada
+<strong>data</strong></li>
+</ul>
+<p><br/><br/></p>
+</div>
+<div id="paso-4" class="section level5">
+<h5><span style="color:#6487A5"><strong>Paso 4</strong></span></h5>
+<ul>
+<li>Descargue del Observatorio de Violencia una base de datos <a
+href="https://www.medicinalegal.gov.co/indicadores-procuraduria#:~:text=Indicadores%20de%20Infancia%2C%20adolescencia%20y%20juventud%20Procuradur%C3%ADa%202021">Indicadores
+de Infancia, adolescencia y juventud Procuraduría 2021</a></li>
+</ul>
+<p><br/><br/></p>
+</div>
+<div id="paso-5" class="section level5">
+<h5><span style="color:#6487A5"><strong>Paso 5</strong></span></h5>
+<ul>
+<li>Copie la base de datos descargada a la carpeta data creada dentro
+del proyecto <strong>seminario</strong></li>
+</ul>
+<p><br/><br/></p>
+</div>
+<div id="paso-6" class="section level5">
+<h5><span style="color:#6487A5"><strong>Paso 6</strong></span></h5>
+<ul>
+<li>Importe la hoja electrónica <strong>Ind.violencia Sexual</strong>
+contenida dentro del archivo descargado. Recuerde previamente verificar
+el rango dentro del cual se encuentra la información ( Import Dataset /
+From Excel…/). Ubique el archivo dentro de la carpeta
+<strong>data</strong>. (Browse..). Ubique la hoja seleccionada (Sheet :
+Ind. Violencia Sexual). Escriba el rango (B9:AJ2548) . Import.</li>
+</ul>
+<p><br/><br/></p>
+<p>Note que en la ventana <strong>console</strong> sale el código
+relacionado con la importación de la base. Abra un script (documento en
+blanco para escribir los códigos). + verde ubicado en la esquina
+superior izquierda : R Script.</p>
+<p><br/><br/></p>
+</div>
+<div id="paso-7" class="section level5">
+<h5><span style="color:#6487A5"><strong>Paso 7</strong></span></h5>
+<ul>
+<li>Copie el código relacionado con la importación de la base de datos
+en el Script</li>
+</ul>
+<p><br/><br/></p>
+<blockquote>
+<p>Indicadores_Infancia_adolescencia_juventud_2021 &lt;-
+read_excel(“data/Indicadores_Infancia_adolescencia_juventud_2021.xlsx”,
++ sheet = “Ind. Violencia Sexual”, range = “B9:AJ2548”)</p>
+</blockquote>
+</pre>
+<p>Elimine &gt; deje el codigo en una sola línea sin el mas y cambie el
+nombre de la base por violencia_sex_2021, esto facilitará a futuro el
+llamado de la base.</p>
+<pre>
+
+base222 <-read_excel("data/Indicadores_Infancia_adolescencia_juventud_2021.xlsx", sheet = "Ind. Violencia Sexual", range = "B9:AJ2548")
+
+</pre>
+<!-- B9:AJ2548 -->
+<pre class="r"><code>library(readxl)
+violencia_sex_2021 &lt;-read_excel(&quot;data/Indicadores_Infancia_adolescencia_juventud_2021.xlsx&quot;,
+                                sheet = &quot;Ind. Violencia Sexual&quot;, 
+                                range = &quot;B9:AJ2548&quot;)</code></pre>
+<p>Listo, ya tenemos el primer paso que es la importación de la base</p>
+<p><br/><br/><br/></p>
+</div>
+</div>
+<div id="examinar-la-data" class="section level2">
+<h2><span style="color:#0E9183"><strong>Examinar la
+data</strong></span></h2>
+<div id="paso-8" class="section level5">
+<h5><span style="color:#6487A5"><strong>Paso 8</strong></span></h5>
+<ul>
+<li>Abrimos la base de datos importada y observamos como en una hoja de
+excel la base de datos</li>
+</ul>
+<pre class="r"><code>View(violencia_sex_2021)</code></pre>
+<pre>
+View(violencia_sex_2021)
+</pre>
+<p><br/><br/></p>
+</div>
+<div id="paso-9" class="section level5">
+<h5><span style="color:#6487A5"><strong>Paso 9</strong></span></h5>
+<ul>
+<li>Revisamos la estructura de la data</li>
+</ul>
+<pre class="r"><code>str(violencia_sex_2021)</code></pre>
+<pre><code>tibble [2,539 × 35] (S3: tbl_df/tbl/data.frame)
+ $ Código Departamento              : num [1:2539] 91 91 91 91 91 91 91 91 5 5 ...
+ $ Código Municipio                 : num [1:2539] 91263 91405 91001 91001 91001 ...
+ $ Código indicador                 : num [1:2539] 81 81 81 81 81 121 81 81 81 81 ...
+ $ Nombre del indicador             : chr [1:2539] &quot;Tasa de exámenes médico legales por presunto delito sexual contra niños, niñas y adolescentes&quot; &quot;Tasa de exámenes médico legales por presunto delito sexual contra niños, niñas y adolescentes&quot; &quot;Tasa de exámenes médico legales por presunto delito sexual contra niños, niñas y adolescentes&quot; &quot;Tasa de exámenes médico legales por presunto delito sexual contra niños, niñas y adolescentes&quot; ...
+ $ Contexto del hecho               : chr [1:2539] &quot;PRESUNTO DELITO SEXUAL&quot; &quot;PRESUNTO DELITO SEXUAL&quot; &quot;PRESUNTO DELITO SEXUAL&quot; &quot;PRESUNTO DELITO SEXUAL&quot; ...
+ $ Periodo del Indicador            : num [1:2539] 2021 2021 2021 2021 2021 ...
+ $ Rangos de edad o edades simples  : chr [1:2539] &quot;(06 a 11)&quot; &quot;(12 a 17)&quot; &quot;(01 a 05)&quot; &quot;(06 a 11)&quot; ...
+ $ Numerador (casos)                : num [1:2539] 1 3 13 21 30 4 1 1 3 5 ...
+ $ Denominador (Población)          : num [1:2539] 331 540 5711 6788 6395 ...
+ $ Resultado (Tasa)                 : num [1:2539] 302 556 228 309 469 ...
+ $ Hombre Numerador (casos)         : num [1:2539] 0 0 4 5 3 1 0 0 1 0 ...
+ $ Hombre Denominador (Población)   : num [1:2539] 174 295 2926 3447 3266 ...
+ $ Hombre Resultado (Tasa)          : num [1:2539] 0 0 136.7 145.1 91.9 ...
+ $ Mujer Numerador (casos)          : num [1:2539] 1 3 9 16 27 3 1 1 2 5 ...
+ $ Mujer Denominador (Población)    : num [1:2539] 157 245 2785 3341 3129 ...
+ $ Mujer Resultado (Tasa)           : num [1:2539] 637 1224 323 479 863 ...
+ $ Sin Datos Numerador (casos)      : num [1:2539] 0 0 0 0 0 0 0 0 0 0 ...
+ $ Sin Datos Denominador (Población): num [1:2539] 0 0 0 0 0 0 0 0 0 0 ...
+ $ Sin Datos Resultado (Tasa)       : num [1:2539] 0 0 0 0 0 0 0 0 0 0 ...
+ $ Rural                            : num [1:2539] 1 0 1 1 3 0 0 1 2 3 ...
+ $ Urbana                           : num [1:2539] 0 3 12 20 27 4 1 0 1 2 ...
+ $ Sin información...22             : num [1:2539] 0 0 0 0 0 0 0 0 0 0 ...
+ $ Desplazados (as)                 : num [1:2539] 0 0 0 0 0 0 0 0 0 0 ...
+ $ Otros                            : num [1:2539] 1 3 13 21 30 4 1 1 3 5 ...
+ $ Persona con discapacidad         : num [1:2539] 0 0 0 1 2 1 0 0 0 0 ...
+ $ No discapacitado                 : num [1:2539] 1 3 13 20 28 3 1 1 3 5 ...
+ $ Discapacitado
+Sin información   : num [1:2539] 0 0 0 0 0 0 0 0 0 0 ...
+ $ Indígena                         : num [1:2539] 1 2 6 7 16 2 1 1 0 0 ...
+ $ Negro/Afrodescendiente           : num [1:2539] 0 0 0 0 0 0 0 0 0 0 ...
+ $ Palenquero                       : num [1:2539] 0 0 0 0 0 0 0 0 0 0 ...
+ $ Raizal                           : num [1:2539] 0 0 0 0 0 0 0 0 0 0 ...
+ $ ROM (Gitano)                     : num [1:2539] 0 0 0 0 0 0 0 0 0 0 ...
+ $ Sin pertenencia étnica           : num [1:2539] 0 1 7 14 14 2 0 0 1 3 ...
+ $ Sin información...34             : num [1:2539] 0 0 0 0 0 0 0 0 2 2 ...
+ $ TOTAL                            : num [1:2539] 1 3 13 21 30 4 1 1 3 5 ...</code></pre>
+<p><br/><br/></p>
+</div>
+<div id="paso-10" class="section level5">
+<h5><span style="color:#6487A5"><strong>Paso 10</strong></span></h5>
+<ul>
+<li>Revisamos los nombres de las variables y las guardamos en un
+objeto</li>
+</ul>
+<pre class="r"><code>variables = names(violencia_sex_2021)
+
+variables</code></pre>
+<pre><code> [1] &quot;Código Departamento&quot;               &quot;Código Municipio&quot;                 
+ [3] &quot;Código indicador&quot;                  &quot;Nombre del indicador&quot;             
+ [5] &quot;Contexto del hecho&quot;                &quot;Periodo del Indicador&quot;            
+ [7] &quot;Rangos de edad o edades simples&quot;   &quot;Numerador (casos)&quot;                
+ [9] &quot;Denominador (Población)&quot;           &quot;Resultado (Tasa)&quot;                 
+[11] &quot;Hombre Numerador (casos)&quot;          &quot;Hombre Denominador (Población)&quot;   
+[13] &quot;Hombre Resultado (Tasa)&quot;           &quot;Mujer Numerador (casos)&quot;          
+[15] &quot;Mujer Denominador (Población)&quot;     &quot;Mujer Resultado (Tasa)&quot;           
+[17] &quot;Sin Datos Numerador (casos)&quot;       &quot;Sin Datos Denominador (Población)&quot;
+[19] &quot;Sin Datos Resultado (Tasa)&quot;        &quot;Rural&quot;                            
+[21] &quot;Urbana&quot;                            &quot;Sin información...22&quot;             
+[23] &quot;Desplazados (as)&quot;                  &quot;Otros&quot;                            
+[25] &quot;Persona con discapacidad&quot;          &quot;No discapacitado&quot;                 
+[27] &quot;Discapacitado\nSin información&quot;    &quot;Indígena&quot;                         
+[29] &quot;Negro/Afrodescendiente&quot;            &quot;Palenquero&quot;                       
+[31] &quot;Raizal&quot;                            &quot;ROM (Gitano)&quot;                     
+[33] &quot;Sin pertenencia étnica&quot;            &quot;Sin información...34&quot;             
+[35] &quot;TOTAL&quot;                            </code></pre>
+<p><br/><br/></p>
+</div>
+<div id="paso-11" class="section level5">
+<h5><span style="color:#6487A5"><strong>Paso 11</strong></span></h5>
+<ul>
+<li>Cambiamos los nombre de las variables por otros corto y sin
+espacios</li>
+</ul>
+<pre class="r"><code>names(violencia_sex_2021)=c(&quot;cdep&quot;,&quot;cmun&quot;,&quot;indicador&quot;, &quot;nomind&quot;,&quot;contexto&quot;, 
+                            &quot;periodo&quot;,&quot;edadR&quot;, &quot;casos&quot;, &quot;poblacion&quot;,&quot;tasa&quot;, 
+                            &quot;casosh&quot;,  &quot;poblacionh&quot;, &quot;tasah&quot;, &quot;casosm&quot;, 
+                            &quot;poblacionm&quot;, &quot;tasam&quot;, &quot;casosNA&quot;, &quot;poblacionNA&quot;, 
+                            &quot;tasaNA&quot;,   &quot;rural&quot;, &quot;urbana&quot;,  &quot;sininfor&quot;, 
+                            &quot;desplazados&quot;, &quot;otros&quot;, &quot;discapacitados&quot;,    
+                            &quot;nodiscapacitados&quot;, &quot;discapacitado.Sininformacion&quot;, 
+                            &quot;indigena&quot;, &quot;negro&quot;, &quot;palenquero&quot;, &quot;raizal&quot;,  &quot;ROM&quot;,
+                            &quot;Sinetnica&quot;, &quot;Sininformación&quot;, &quot;TOTAL&quot;, &quot;tipo&quot;) </code></pre>
+<p><br/><br/></p>
+</div>
+<div id="paso-12" class="section level5">
+<h5><span style="color:#6487A5"><strong>Paso 12</strong></span></h5>
+<ul>
+<li>Quitamos la información repetida - variables repetidas</li>
+</ul>
+<pre class="r"><code># cheque de variables
+names(violencia_sex_2021) </code></pre>
+<pre><code> [1] &quot;cdep&quot;                         &quot;cmun&quot;                        
+ [3] &quot;indicador&quot;                    &quot;nomind&quot;                      
+ [5] &quot;contexto&quot;                     &quot;periodo&quot;                     
+ [7] &quot;edadR&quot;                        &quot;casos&quot;                       
+ [9] &quot;poblacion&quot;                    &quot;tasa&quot;                        
+[11] &quot;casosh&quot;                       &quot;poblacionh&quot;                  
+[13] &quot;tasah&quot;                        &quot;casosm&quot;                      
+[15] &quot;poblacionm&quot;                   &quot;tasam&quot;                       
+[17] &quot;casosNA&quot;                      &quot;poblacionNA&quot;                 
+[19] &quot;tasaNA&quot;                       &quot;rural&quot;                       
+[21] &quot;urbana&quot;                       &quot;sininfor&quot;                    
+[23] &quot;desplazados&quot;                  &quot;otros&quot;                       
+[25] &quot;discapacitados&quot;               &quot;nodiscapacitados&quot;            
+[27] &quot;discapacitado.Sininformacion&quot; &quot;indigena&quot;                    
+[29] &quot;negro&quot;                        &quot;palenquero&quot;                  
+[31] &quot;raizal&quot;                       &quot;ROM&quot;                         
+[33] &quot;Sinetnica&quot;                    &quot;Sininformación&quot;              
+[35] &quot;TOTAL&quot;                       </code></pre>
+<pre class="r"><code># vsex21 &lt;- violencia_sex_2021[, c(1,2,4,5,6,7,8,11,12,14,15, 17,18, 19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34)]
+vsex21 &lt;- violencia_sex_2021[, c(1,2,4:8,11,12,14,15, 17:34)]
+str(vsex21)</code></pre>
+<pre><code>tibble [2,539 × 29] (S3: tbl_df/tbl/data.frame)
+ $ cdep                        : num [1:2539] 91 91 91 91 91 91 91 91 5 5 ...
+ $ cmun                        : num [1:2539] 91263 91405 91001 91001 91001 ...
+ $ nomind                      : chr [1:2539] &quot;Tasa de exámenes médico legales por presunto delito sexual contra niños, niñas y adolescentes&quot; &quot;Tasa de exámenes médico legales por presunto delito sexual contra niños, niñas y adolescentes&quot; &quot;Tasa de exámenes médico legales por presunto delito sexual contra niños, niñas y adolescentes&quot; &quot;Tasa de exámenes médico legales por presunto delito sexual contra niños, niñas y adolescentes&quot; ...
+ $ contexto                    : chr [1:2539] &quot;PRESUNTO DELITO SEXUAL&quot; &quot;PRESUNTO DELITO SEXUAL&quot; &quot;PRESUNTO DELITO SEXUAL&quot; &quot;PRESUNTO DELITO SEXUAL&quot; ...
+ $ periodo                     : num [1:2539] 2021 2021 2021 2021 2021 ...
+ $ edadR                       : chr [1:2539] &quot;(06 a 11)&quot; &quot;(12 a 17)&quot; &quot;(01 a 05)&quot; &quot;(06 a 11)&quot; ...
+ $ casos                       : num [1:2539] 1 3 13 21 30 4 1 1 3 5 ...
+ $ casosh                      : num [1:2539] 0 0 4 5 3 1 0 0 1 0 ...
+ $ poblacionh                  : num [1:2539] 174 295 2926 3447 3266 ...
+ $ casosm                      : num [1:2539] 1 3 9 16 27 3 1 1 2 5 ...
+ $ poblacionm                  : num [1:2539] 157 245 2785 3341 3129 ...
+ $ casosNA                     : num [1:2539] 0 0 0 0 0 0 0 0 0 0 ...
+ $ poblacionNA                 : num [1:2539] 0 0 0 0 0 0 0 0 0 0 ...
+ $ tasaNA                      : num [1:2539] 0 0 0 0 0 0 0 0 0 0 ...
+ $ rural                       : num [1:2539] 1 0 1 1 3 0 0 1 2 3 ...
+ $ urbana                      : num [1:2539] 0 3 12 20 27 4 1 0 1 2 ...
+ $ sininfor                    : num [1:2539] 0 0 0 0 0 0 0 0 0 0 ...
+ $ desplazados                 : num [1:2539] 0 0 0 0 0 0 0 0 0 0 ...
+ $ otros                       : num [1:2539] 1 3 13 21 30 4 1 1 3 5 ...
+ $ discapacitados              : num [1:2539] 0 0 0 1 2 1 0 0 0 0 ...
+ $ nodiscapacitados            : num [1:2539] 1 3 13 20 28 3 1 1 3 5 ...
+ $ discapacitado.Sininformacion: num [1:2539] 0 0 0 0 0 0 0 0 0 0 ...
+ $ indigena                    : num [1:2539] 1 2 6 7 16 2 1 1 0 0 ...
+ $ negro                       : num [1:2539] 0 0 0 0 0 0 0 0 0 0 ...
+ $ palenquero                  : num [1:2539] 0 0 0 0 0 0 0 0 0 0 ...
+ $ raizal                      : num [1:2539] 0 0 0 0 0 0 0 0 0 0 ...
+ $ ROM                         : num [1:2539] 0 0 0 0 0 0 0 0 0 0 ...
+ $ Sinetnica                   : num [1:2539] 0 1 7 14 14 2 0 0 1 3 ...
+ $ Sininformación              : num [1:2539] 0 0 0 0 0 0 0 0 2 2 ...</code></pre>
+<p><br/><br/></p>
+</div>
+<div id="paso-13" class="section level5">
+<h5><span style="color:#6487A5"><strong>Paso 13</strong></span></h5>
+<ul>
+<li>Revisar si existen datos faltantes (NA)</li>
+</ul>
+<pre class="r"><code>faltantes &lt;- colSums(is.na(vsex21))
+faltantes &lt;- as.data.frame(faltantes) 
+faltantes</code></pre>
+<pre><code>                             faltantes
+cdep                                85
+cmun                                85
+nomind                              85
+contexto                            85
+periodo                             85
+edadR                               85
+casos                               85
+casosh                              85
+poblacionh                          89
+casosm                              85
+poblacionm                          89
+casosNA                             85
+poblacionNA                         85
+tasaNA                              85
+rural                               85
+urbana                              85
+sininfor                            85
+desplazados                         85
+otros                               85
+discapacitados                      85
+nodiscapacitados                    85
+discapacitado.Sininformacion        85
+indigena                            85
+negro                               85
+palenquero                          85
+raizal                              85
+ROM                                 85
+Sinetnica                           85
+Sininformación                      85</code></pre>
+<pre class="r"><code># install.packages(&quot;naniar&quot;)
+library(naniar)
+gg_miss_var(vsex21) # gráfico de datos faltantes</code></pre>
+<p><img src="practica201_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<pre class="r"><code>summary(vsex21)</code></pre>
+<pre><code>      cdep             cmun          nomind            contexto        
+ Min.   :  5.00   Min.   :  999   Length:2539        Length:2539       
+ 1st Qu.: 15.00   1st Qu.:15682   Class :character   Class :character  
+ Median : 25.00   Median :25718   Mode  :character   Mode  :character  
+ Mean   : 39.81   Mean   :38596                                        
+ 3rd Qu.: 68.00   3rd Qu.:68242                                        
+ Max.   :999.00   Max.   :99001                                        
+ NA&#39;s   :85       NA&#39;s   :85                                           
+    periodo        edadR               casos              casosh       
+ Min.   :2021   Length:2539        Min.   :   1.000   Min.   :  0.000  
+ 1st Qu.:2021   Class :character   1st Qu.:   1.000   1st Qu.:  0.000  
+ Median :2021   Mode  :character   Median :   2.000   Median :  0.000  
+ Mean   :2021                      Mean   :   8.585   Mean   :  1.103  
+ 3rd Qu.:2021                      3rd Qu.:   5.000   3rd Qu.:  1.000  
+ Max.   :2021                      Max.   :1985.000   Max.   :183.000  
+ NA&#39;s   :85                        NA&#39;s   :85         NA&#39;s   :85       
+   poblacionh           casosm           poblacionm        casosNA  
+ Min.   :    39.0   Min.   :   0.000   Min.   :    47   Min.   :0   
+ 1st Qu.:   567.2   1st Qu.:   1.000   1st Qu.:   529   1st Qu.:0   
+ Median :  1179.5   Median :   2.000   Median :  1124   Median :0   
+ Mean   :  4145.3   Mean   :   7.482   Mean   :  4041   Mean   :0   
+ 3rd Qu.:  2632.5   3rd Qu.:   5.000   3rd Qu.:  2520   3rd Qu.:0   
+ Max.   :766011.0   Max.   :1802.000   Max.   :768040   Max.   :0   
+ NA&#39;s   :89         NA&#39;s   :85         NA&#39;s   :89       NA&#39;s   :85  
+  poblacionNA     tasaNA       rural            urbana        
+ Min.   :0    Min.   :0    Min.   : 0.000   Min.   :   0.000  
+ 1st Qu.:0    1st Qu.:0    1st Qu.: 0.000   1st Qu.:   1.000  
+ Median :0    Median :0    Median : 1.000   Median :   2.000  
+ Mean   :0    Mean   :0    Mean   : 1.244   Mean   :   7.269  
+ 3rd Qu.:0    3rd Qu.:0    3rd Qu.: 2.000   3rd Qu.:   4.000  
+ Max.   :0    Max.   :0    Max.   :44.000   Max.   :1959.000  
+ NA&#39;s   :85   NA&#39;s   :85   NA&#39;s   :85       NA&#39;s   :85        
+    sininfor         desplazados          otros          discapacitados    
+ Min.   : 0.00000   Min.   : 0.0000   Min.   :   0.000   Min.   : 0.00000  
+ 1st Qu.: 0.00000   1st Qu.: 0.0000   1st Qu.:   1.000   1st Qu.: 0.00000  
+ Median : 0.00000   Median : 0.0000   Median :   2.000   Median : 0.00000  
+ Mean   : 0.07213   Mean   : 0.1434   Mean   :   8.441   Mean   : 0.09372  
+ 3rd Qu.: 0.00000   3rd Qu.: 0.0000   3rd Qu.:   5.000   3rd Qu.: 0.00000  
+ Max.   :39.00000   Max.   :30.0000   Max.   :1981.000   Max.   :11.00000  
+ NA&#39;s   :85         NA&#39;s   :85        NA&#39;s   :85         NA&#39;s   :85        
+ nodiscapacitados   discapacitado.Sininformacion    indigena      
+ Min.   :   0.000   Min.   :0                    Min.   : 0.0000  
+ 1st Qu.:   1.000   1st Qu.:0                    1st Qu.: 0.0000  
+ Median :   2.000   Median :0                    Median : 0.0000  
+ Mean   :   8.491   Mean   :0                    Mean   : 0.1858  
+ 3rd Qu.:   5.000   3rd Qu.:0                    3rd Qu.: 0.0000  
+ Max.   :1979.000   Max.   :0                    Max.   :17.0000  
+ NA&#39;s   :85         NA&#39;s   :85                   NA&#39;s   :85       
+     negro           palenquero          raizal             ROM         
+ Min.   : 0.0000   Min.   :0.00000   Min.   :0.00000   Min.   :0.00000  
+ 1st Qu.: 0.0000   1st Qu.:0.00000   1st Qu.:0.00000   1st Qu.:0.00000  
+ Median : 0.0000   Median :0.00000   Median :0.00000   Median :0.00000  
+ Mean   : 0.2225   Mean   :0.00204   Mean   :0.02078   Mean   :0.00122  
+ 3rd Qu.: 0.0000   3rd Qu.:0.00000   3rd Qu.:0.00000   3rd Qu.:0.00000  
+ Max.   :36.0000   Max.   :2.00000   Max.   :9.00000   Max.   :1.00000  
+ NA&#39;s   :85        NA&#39;s   :85        NA&#39;s   :85        NA&#39;s   :85       
+   Sinetnica        Sininformación    
+ Min.   :   0.000   Min.   :  0.0000  
+ 1st Qu.:   1.000   1st Qu.:  0.0000  
+ Median :   2.000   Median :  0.0000  
+ Mean   :   7.417   Mean   :  0.7359  
+ 3rd Qu.:   5.000   3rd Qu.:  1.0000  
+ Max.   :1831.000   Max.   :145.0000  
+ NA&#39;s   :85         NA&#39;s   :85        </code></pre>
+<pre class="r"><code># install.packages(&quot;naniar&quot;)
+library(naniar)
+gg_miss_var(vsex21) # grafico de datos faltantes</code></pre>
+<p><img src="practica201_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<pre class="r"><code>vsex21 &lt;- vsex21[1:2454,]</code></pre>
+<p><br/><br/></p>
+</div>
+<div id="pase-14" class="section level4">
+<h4><span style="color:#6487A5"><strong>Pase 14</strong></span></h4>
+<ul>
+<li>Se eliminan los registros con datos faltantes</li>
+</ul>
+<pre class="r"><code># install.packages(&quot;naniar&quot;)
+library(naniar)
+vsex21SINA &lt;- na.omit(vsex21)  # elimina todos los valores con  NA
+gg_miss_var(vsex21SINA) # gráfico de datos faltantes</code></pre>
+<p><img src="practica201_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><br/><br/></p>
+<div id="paso-15" class="section level5">
+<h5><span style="color:#6487A5"><strong>Paso 15</strong></span></h5>
+<ul>
+<li>Guardamos la base resultante</li>
+</ul>
+<pre class="r"><code>write.csv(vsex21, &quot;data/violencia_sex_2021.csv&quot;)</code></pre>
+<p><br/><br/><br/></p>
+</div>
+</div>
+</div>
+<div id="resumen-de-código" class="section level2">
+<h2><span style="color:#6487A5"><strong>Resumen de
+código</strong></span></h2>
+<pre class="r"><code>library(readxl)
+
+violencia_sex_2021 &lt;-read_excel(&quot;data/Indicadores_Infancia_adolescencia_juventud_2021.xlsx&quot;, 
+                                sheet = &quot;Ind. Violencia Sexual&quot;, 
+                                range = &quot;B9:AJ2548&quot;)
+
+
+variables = names(violencia_sex_2021)
+
+names(violencia_sex_2021)=c(&quot;cdep&quot;,&quot;cmun&quot;,&quot;indicador&quot;, &quot;nomind&quot;,&quot;contexto&quot;, 
+                            &quot;periodo&quot;, &quot;edadR&quot;, &quot;casos&quot;, &quot;poblacion&quot;,&quot;tasa&quot;, 
+                            &quot;casosh&quot;, &quot;poblacionh&quot;, &quot;tasah&quot;, &quot;casosm&quot;, 
+                            &quot;poblacionm&quot;, &quot;tasam&quot;, &quot;casosNA&quot;, &quot;poblacionNA&quot;, 
+                            &quot;tasaNA&quot;,   &quot;rural&quot;, &quot;urbana&quot;,  &quot;sininfor&quot;, 
+                            &quot;desplazados&quot;, &quot;otros&quot;, &quot;discapacitados&quot;,    
+                            &quot;nodiscapacitados&quot;, &quot;discapacitado.Sininformacion&quot;, 
+                            &quot;indigena&quot;, &quot;negro&quot;, &quot;palenquero&quot;, &quot;raizal&quot;,&quot;ROM&quot;, 
+                            &quot;Sinetnica&quot;, &quot;Sininformación&quot;, &quot;TOTAL&quot;, &quot;tipo&quot;) 
+
+
+
+vsex21 &lt;- violencia_sex_2021[, c(1,2,4:8,11,12,14,15, 17:34)]
+str(vsex21)
+
+faltantes &lt;- colSums(is.na(vsex21))
+faltantes &lt;- as.data.frame(faltantes) 
+faltantes
+
+# install.packages(&quot;naniar&quot;)
+library(naniar)
+gg_miss_var(vsex21) # gráfico de datos faltantes
+
+
+
+# install.packages(&quot;naniar&quot;)
+library(naniar)
+gg_miss_var(vsex21) # grafico de datos faltantes
+vsex21 &lt;- vsex21[1:2454,]
+
+
+# install.packages(&quot;naniar&quot;)
+library(naniar)
+vsex21SINA &lt;- na.omit(vsex21)  # elimina todos los valores con  NA
+gg_miss_var(vsex21SINA) # gráfico de datos faltantes
+
+
+write.csv(vsex21, &quot;data/violencia_sex_2021.csv&quot;)</code></pre>
+<p><br/><br/></p>
+<div id="paso-16" class="section level5">
+<h5><span style="color:#6487A5"><strong>Paso 16</strong></span></h5>
+<ul>
+<li><p>Repita el anterior procedimiento para las bases correspondientes
+a los periodos 2022 y 2020 y guarde las bases con los nombres :</p></li>
+<li><p>data/violencia_sex_2022.csv</p></li>
+<li><p>data/violencia_sex_2020.csv</p></li>
+</ul>
+<p>En la próxima sesión serán unidos</p>
+<p><br/><br/><br/></p>
+</div>
+<div id="nota" class="section level3 content-box-green">
+<h3><strong>NOTA</strong></h3>
+<p>En caso de utilizar RStudio Cloud, clone el repositorio github
+seminarioML con el siguiente enlace</p>
+<p><code>https://github.com/dgonxalex80/seminarioML.git</code></p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

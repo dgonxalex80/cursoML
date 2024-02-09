@@ -30,6 +30,13 @@ knitr::include_graphics("img/banner01.png")
 <br/><br/>
 
 
+```{r, echo=FALSE, out.width="60%", fig.align = "center"}
+knitr::include_graphics("img/SeminarioML.png")
+```
+
+
+<br/><br/>
+
 
 
 ## <span style="color:#0E9183">**Unidad 1: **</span> 

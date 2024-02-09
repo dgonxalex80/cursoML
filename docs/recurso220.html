@@ -392,8 +392,20 @@ $(document).ready(function () {
 <li>
   <a href="recurso700.html">Ref</a>
 </li>
-<li>
-  <a href="recurso800.html">Proy</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Proy
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="recurso900.html">Proyecto</a>
+    </li>
+    <li>
+      <a href="practica201.html">Practiaca 01</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -425,7 +437,180 @@ datos</strong></span></h1>
 
 
 <p><br/><br/></p>
+<p><img src="img/sesion202.png" width="100%" style="display: block; margin: auto;" /></p>
+<p></br></br></br></p>
+<p>La preparación de los datos está precedida de una serie de etapas
+como son :</p>
+<p></br></p>
+<ul>
+<li>Definición del problema</li>
+<li>Definición de los objetivos</li>
+<li>Definición de las variables de interés</li>
+<li>Definición del tipo de estudio</li>
+</ul>
+<p></br></p>
+<p>Es decir que al tener claridad de estos pasos previos y su relación
+se procederá a seleccionar las fuentes de información que contienen lo
+necesario para nuestro trabajo</p>
+<p><br/></br></p>
+<div id="nota" class="section level3 content-box-green">
+<h3><strong>NOTA</strong></h3>
+<p>Es posible que estas etapas previas pasen desapercibidas para los
+usuarios de información, sobre todo cuando se utilizan fuentes
+secundarias que han sido recogidas con otros propósitos.</p>
+</div>
 <p><br/><br/></p>
+<div id="importar" class="section level2">
+<h2><span style="color:#0E9183"><strong>IMPORTAR</strong></span></h2>
+<p></br></p>
+<p>Definida las fuentes de los datos se procede a
+<strong>IMPORTAR</strong> la información desde diferentes tipos de
+fuentes y formatos, de manera estructurada y no estructurada . Nos
+enfocaremos en las fuentes estructuradas en bases de datos con csv,
+xlsx, txt, dat.</p>
+<p></br></p>
+<p>Para que estos datos sean procesados y convertidos en información
+útil, requieren ser <strong>TRANSFORMADOS</strong> y
+<strong>ORDENADOS</strong> de tal forma que permitan la construcción de
+tablas, indicadores y gráficos.</p>
+<p><br/></br></p>
+</div>
+<div id="exploración" class="section level2">
+<h2><span style="color:#0E9183"><strong>EXPLORACIÓN</strong></span></h2>
+<p></br></p>
+<p>Despues de importar los datos se procede a realizar una
+<strong>EXPLORACIÓN</strong> de la información contenida y su
+estructura. Esta labor se realiza mediante la visualización de sus
+principales características y la construcción de tablas y resumen de
+indicadores.</p>
+<p></br></p>
+<p>Dentro de este proceso de examina:</p>
+<p></br></p>
+<ul>
+<li>En caso de ser una hoja electrónica, se determina el rango que ocupa
+y su conformación</li>
+</ul>
+<p></br></p>
+<ul>
+<li>Debe de tener una estructura donde las filas correspondan a
+información de los objetos observados o <strong>unidades de
+observación</strong> - registros. Las columnas deben corresponder a las
+caracteristicas observadas para cada objeto o unidad de observación que
+llamaremos <strong>variables</strong>.</li>
+</ul>
+<p></br></p>
+<ul>
+<li>Se sugiere que los nombres de las variables deben ser cortos, no
+deben contener caracteres especiales no espacios. Aunque podrían ser
+x1,x2,x3,….xm facilitando su escritura, tambien es bueno tener nombre
+con los se pueda reconocer rápidamente la variable. Por ejemplo:</li>
+</ul>
+<p></br></p>
+<ul>
+<li>En lugar de “Código de Departamento”, “coddep”</li>
+<li>En lugar de “Periodo del Indicador”, “periodo”<br />
+</li>
+<li>En lugar de “Rangos de edad o edades simples”, “edadR”</li>
+<li>“Resultado (Tasa)” , “casos”</li>
+<li>“Hombre Numerador (casos)”, “casoshom”</li>
+</ul>
+<p></br></p>
+<ul>
+<li>Si la base contiene en su primera fila el nombre de las variables.
+En caso contrario, será necesario borrar las filas adicionales o indicar
+el rango en el momento de importar la base</li>
+</ul>
+<p></br></p>
+<ul>
+<li>Revisar si existen datos faltantes (NA), con el fin de evaluar su
+impacto sobre los análisis y tomar la determinación de excluirlos -
+borrarlos - o mantenerlos e imputarlos. En el caso de decidir
+imputarlos, se debe determinar el tipo de imputación a realizar, dado
+que el valor pueda estar relacionado con:</li>
+<li>podría tomar el valor de cero, debido a que la persona interpretó de
+esta forma</li>
+<li>no respuesta</li>
+<li>no digitada</li>
+</ul>
+<p></br></p>
+<ul>
+<li>Al realizar la IMPUTACIÓN** se puede reemplazar por la media de la
+variable o la mediana, bajo la hipótesis que este cambio no afectará el
+análisis. También se pueden emplear métodos avanzados que permitan
+reemplazar el valor por el de una unidad con características
+similares.</li>
+</ul>
+<p></br></p>
+<ul>
+<li>En caso de presentarse registros duplicados se pueden unificar. En
+caso de variables cualitativas conservando su valor, en otros por su
+valor máximo, la suma o la media según el caso.</li>
+</ul>
+<p></br></br></p>
+</div>
+<div id="ordenar" class="section level2">
+<h2><span style="color:#0E9183"><strong>ORDENAR</strong></span></h2>
+<p></br></p>
+<p>De acuerdo con con los objetivos, el estudio a realizar se construye
+la estructura de la base de datos. Puede ser necesario:</p>
+<p></br></p>
+<ul>
+<li>Integrar dos bases de datos, adicionando variables o adicionando
+registros</li>
+</ul>
+<p></br></p>
+<ul>
+<li>Cambiar el formato de los datos :
+<ul>
+<li>Formato largo a formato ancho</li>
+<li>Formato ancho a formato largo</li>
+</ul></li>
+</ul>
+<p></br></p>
+<ul>
+<li>Cambiar el orden de las variables</li>
+</ul>
+<p></br></p>
+<ul>
+<li>Seleccionar un grupo de variables, conformando una base más
+pequeña</li>
+</ul>
+<p></br></p>
+<ul>
+<li>Seleccionar registros y conformar una base de acuerdo con unas
+condiciones</li>
+</ul>
+<p></br></p>
+<ul>
+<li>Realizar transformaciones de variables</li>
+</ul>
+<p></br></p>
+<ul>
+<li>Estandarizar</li>
+</ul>
+<p></br></p>
+<ul>
+<li>Normalizar</li>
+</ul>
+<p></br></p>
+<ul>
+<li>Recodificar variables</li>
+</ul>
+<p></br></p>
+<ul>
+<li>Construir nuevas variables</li>
+</ul>
+<p><br/></br></p>
+</div>
+<div id="guaradar" class="section level2">
+<h2><span style="color:#0E9183"><strong>GUARADAR</strong></span></h2>
+<p></br></p>
+<p>Finalmente se guarda la base de datos depurada para ser empleada en
+los análisis exploratorios y posteriormente en la modelación e
+inferencia estadística</p>
+<p><br/></br><br/></br></p>
+<p><strong>&gt;&gt; A PRACTICAR LOS VISTO !!</strong></p>
+</div>
 
 
 

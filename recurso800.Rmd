@@ -34,4 +34,42 @@ knitr::include_graphics("img/banner_proyecto.png")
 <br/><br/>
 
 
+##  <span style="color:#034a94">**Guía para el Proyecto Final**</spam> 
+## <span style="color:#034a94">**Aplicación Práctica de Conocimientos en Ciencia de Datos sobre Violencia**</span>
+
 <br/><br/>
+
+## <span style="color:#034a94">**Objetivos**</span>
+
+<br/>
+
+* Fomentar la aplicación práctica de los conocimientos adquiridos durante el Seminario de Manejo de Bases de Datos Nacionales y Mundiales sobre Violencia.
+
+<br/>
+
+* Facilitar la interrelación de conceptos en Ciencia de Datos para abordar un problema específico.
+
+<br/>
+
+* Capacitar a los participantes para identificar situaciones donde puedan aplicar las técnicas estudiadas.
+
+<br/>
+
+* Desarrollar habilidades en el análisis estadístico y en el manejo de herramientas de ciencia de datos.
+
+<br/><br/><br/>
+
+## <span style="color:#034a94">**Temática**</span>
+
+<br/>
+
+En equipos de hasta tres participantes, se llevará a cabo un proyecto basado en las instrucciones y enfoques presentados durante el seminario. El objetivo es producir un producto final que será presentado y discutido en la última sesión del curso.
+
+<br/>
+
+Los resultados del proyecto se presentarán de forma oral, con un límite de tiempo de 10 minutos por equipo.
+
+
+
+<br/><br/><br/>
+ 
