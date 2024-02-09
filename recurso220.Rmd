@@ -1,5 +1,5 @@
 ---
-title: <span style="color:#034a94">**Integración ytransformación de datos**</span> 
+title: <span style="color:#034a94">**Integración y transformación  de datos**</span> 
 subtitle: "Unidad 2"
 author: "Manejo base de datos sobre violencia"
 date: " "
@@ -100,7 +100,7 @@ Dentro de este proceso de examina:
   * En lugar de "Código de Departamento", "coddep"
   * En lugar de "Periodo del Indicador", "periodo"                  
   * En lugar de "Rangos de edad o edades simples", "edadR"
-  * "Resultado (Tasa)" , "casos"
+  * "Resultado (Tasa)" , "tasa"
   * "Hombre Numerador (casos)", "casoshom"
 
 </br>
