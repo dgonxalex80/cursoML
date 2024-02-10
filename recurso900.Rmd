@@ -32,7 +32,7 @@ c7= "#0E9183"  # verde oscuro
 <br/><br/>
 
 
-```{r, echo=FALSE, out.width="15%", fig.align='left'}
+```{r, echo=FALSE, out.width="8%", fig.align='left'}
 knitr::include_graphics("img/logoR.png")
 ```
 
@@ -62,7 +62,7 @@ Es un lenguaje para la computación  estadística, utilizado para el procesamien
    
 <br/><br/>
 
-```{r, echo=FALSE, out.width="50%", fig.align = "center"}
+```{r, echo=FALSE, out.width="70%", fig.align = "center"}
 knitr::include_graphics("img/Rt.png")
 ```
 
@@ -73,7 +73,7 @@ En el siguiente enlace se pueden obtener los archivos para su instalación : htt
 <br/><br/><br/>
 
 
-```{r, echo=FALSE, out.width="20%", fig.align ='left'}
+```{r, echo=FALSE, out.width="10%", fig.align ='left'}
 knitr::include_graphics("img/logoRStudio.png")
 ```
 
