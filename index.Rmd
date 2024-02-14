@@ -49,7 +49,7 @@ knitr::include_graphics("img/SeminarioML.png")
 
 <br/><br/>
 
-## <span style="color:#0E9183"> **Unidad 2: **</span>  
+## <span style="color:#0E9183"> **Unidad 2:**</span>  
 
 ### <span style="color:#0E9183">**Preparación de datos**</span>
 
@@ -61,7 +61,7 @@ knitr::include_graphics("img/SeminarioML.png")
 
 <br/><br/>
 
-## <span style="color:#0E9183"> **Unidad 3: **</span>  
+## <span style="color:#0E9183"> **Unidad 3:**</span>  
 
 ### <span style="color:#0E9183"> **Modelos de aprendizaje supervizado**</span>
 
@@ -74,7 +74,7 @@ knitr::include_graphics("img/SeminarioML.png")
 
 <br/><br/>
 
-### <span style="color:#0E9183">**Unidad 4: **</span>  
+## <span style="color:#0E9183">**Unidad 4:**</span>  
 
 ### <span style="color:#0E9183">**Visalización de datos**</span>
 

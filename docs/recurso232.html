@@ -12,7 +12,7 @@
 <meta name="author" content="Manejo base de datos sobre violencia" />
 
 
-<title>Agrupamiento</title>
+<title>Análisis de correlación</title>
 
 <script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -447,15 +447,110 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore"><span
-style="color:#034a94"><strong>Agrupamiento</strong></span></h1>
-<h3 class="subtitle">Unidad 3</h3>
-<h4 class="author">Manejo base de datos sobre violencia</h4>
+style="color:#034a94"><strong>Análisis de
+correlación</strong></span></h1>
+<h3 class="subtitle"><strong>Análisis exploratorio de
+datos</strong></h3>
+<h4 class="author"><strong>Manejo base de datos sobre
+violencia</strong></h4>
 
 </div>
 
 
+<p><img src="img/banner000.png" width="100%" style="display: block; margin: auto;" /></p>
 <p><br/><br/></p>
+<p>El <strong>análisis de correlación</strong> es una técnica
+estadística que mide la fuerza y la dirección de la relación entre dos
+variables. Es una herramienta crucial en el análisis exploratorio de
+datos (EDA) y en la investigación científica para comprender cómo las
+variables se interconectan.</p>
+<p><br/></p>
+<div id="tipos-de-correlación" class="section level2">
+<h2><strong>Tipos de correlación</strong>:</h2>
 <p><br/><br/></p>
+<div id="correlación-lineal" class="section level3">
+<h3><strong>Correlación lineal</strong>:</h3>
+<p><br/></p>
+<p>Mide la relación lineal entre dos variables, es decir, si una
+variable aumenta o disminuye en una cantidad constante a medida que la
+otra variable cambia.</p>
+<p><br/></p>
+</div>
+<div id="correlación-no-lineal" class="section level3">
+<h3><strong>Correlación no lineal</strong>:</h3>
+<p>Mide la relación no lineal entre dos variables, donde el cambio en
+una variable no es proporcional al cambio en la otra.</p>
+<p><br/></p>
+</div>
+<div id="coeficiente-de-correlación" class="section level3">
+<h3><strong>Coeficiente de correlación</strong>:</h3>
+<p>El coeficiente de correlación de Pearson (<span
+class="math inline">\(r\)</span>) es un valor numérico que indica la
+fuerza y la dirección de la correlación entre dos variables. Su rango
+varía entre <span class="math inline">\(-1\)</span> y <span
+class="math inline">\(1\)</span>:</p>
+<ul>
+<li><span class="math inline">\(r = 0\)</span> : No existe correlación
+lineal entre las variables.</li>
+<li><span class="math inline">\(0 &lt; r &lt; 1\)</span> : Correlación
+positiva, las variables aumentan o disminuyen juntas. <span
+class="math inline">\(-1 &lt; r &lt; 0\)</span> : Correlación negativa,
+las variables se mueven en direcciones opuestas.</li>
+</ul>
+<p><br/></p>
+</div>
+</div>
+<div id="importancia-del-análisis-de-correlación"
+class="section level2">
+<h2><strong>Importancia del análisis de correlación</strong>:</h2>
+<p><br/></p>
+<p><strong>Identificar relaciones entre variables</strong>:</p>
+<ul>
+<li>El análisis de correlación puede ayudar a identificar relaciones
+entre variables que no son evidentes a simple vista.</li>
+</ul>
+<p><br/></p>
+<p><strong>Predecir valores</strong>:</p>
+<ul>
+<li>En algunos casos, la correlación puede usarse para predecir el valor
+de una variable a partir del valor de otra.</li>
+</ul>
+<p><br/></p>
+<p><strong>Comprender fenómenos</strong> : El análisis de correlación
+puede ayudar a comprender los mecanismos subyacentes que dan lugar a las
+relaciones entre variables.</p>
+<p><br/></p>
+</div>
+<div id="limitaciones-del-análisis-de-correlación"
+class="section level2">
+<h2><strong>Limitaciones del análisis de correlación</strong>:</h2>
+<p><strong>No implica causalidad</strong>:</p>
+<ul>
+<li>La correlación no implica causalidad, es decir, una correlación
+entre dos variables no significa que una variable cause la otra.</li>
+</ul>
+<p><br/></p>
+<p><strong>Sensible a valores atípicos</strong>:</p>
+<ul>
+<li>Los valores atípicos pueden distorsionar la medida de la
+correlación.</li>
+</ul>
+<p><strong>Solo mide la relación lineal</strong>:</p>
+<ul>
+<li>El análisis de correlación no detecta relaciones no lineales.
+Pruebas de significancia:</li>
+</ul>
+<p>Las pruebas de significancia se utilizan para determinar si la
+correlación observada entre dos variables es significativa desde el
+punto de vista estadístico, es decir, si es poco probable que haya
+ocurrido por casualidad.</p>
+<p><br/></p>
+<pre class="r"><code>cor(vsex22[,c(8,11,13)])</code></pre>
+<pre><code>           casos    casosh tasah
+casos  1.0000000 0.9217474    NA
+casosh 0.9217474 1.0000000    NA
+tasah         NA        NA     1</code></pre>
+</div>
 
 
 

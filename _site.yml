@@ -24,6 +24,16 @@ navbar:
           href: recurso220.html   
         - text: "Análisis exploratorio"
           href: recurso230.html
+        - text: "* Resumen estadístico"
+          href: recurso231.html          
+        - text: "* Análisis de correlaciones"
+          href: recurso232.html
+        - text: "* Exploración datos faltantes"
+          href: recurso233.html
+        - text: "* Detección datos atípicos"
+          href: recurso234.html
+        - text: "* Análisis de tendencias"
+          href: recurso235.html          
         - text: "Ejercicios sobre el modelo CNRV"
           href: recurso240.html
     - text: "U3"

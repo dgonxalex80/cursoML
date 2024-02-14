@@ -295,6 +295,21 @@ $(document).ready(function () {
       <a href="recurso230.html">Análisis exploratorio</a>
     </li>
     <li>
+      <a href="recurso231.html">* Resumen estadístico</a>
+    </li>
+    <li>
+      <a href="recurso232.html">* Análisis de correlaciones</a>
+    </li>
+    <li>
+      <a href="recurso233.html">* Exploración datos faltantes</a>
+    </li>
+    <li>
+      <a href="recurso234.html">* Detección datos atípicos</a>
+    </li>
+    <li>
+      <a href="recurso235.html">* Análisis de tendencias</a>
+    </li>
+    <li>
       <a href="recurso240.html">Ejercicios sobre el modelo CNRV</a>
     </li>
   </ul>
@@ -440,8 +455,127 @@ datos</strong></span></h1>
 </div>
 
 
+<p><a id="inicio"></a></p>
 <p><br/><br/></p>
 <p><br/><br/></p>
+<p><img src="img/exploracion.png" width="100%" style="display: block; margin: auto;" /></p>
+<p><br/><br/><br/></p>
+<p>El análisis exploratorio de datos (<strong>EDA</strong>, por sus
+siglas en inglés) es una etapa imporante en el proceso de análisis
+estadístico que tiene como objetivo <strong>COMPRENDER</strong> y
+<strong>RESUMIR</strong> las principales características de una base de
+datos. El EDA se centra en explorar los datos de manera visual y
+descriptiva para identificar <strong>patrones</strong>,
+<strong>tendencias</strong>, <strong>relaciones</strong> y posibles
+<strong>anomalías</strong> que puedan ayudar a formular hipótesis o
+guiar análisis posteriores más detallados.</p>
+<p>Los principales elementos del análisis exploratorio de datos
+incluyen:</p>
+<ul>
+<li>Resumen Estadístico</li>
+<li>Viaualización de datos</li>
+<li>Análisis de correlación</li>
+<li>Exploración datos faltantes</li>
+<li>Detección de valores atípicos</li>
+<li>Transformación de variables</li>
+<li>Análisis de tendencias y patrones temporales</li>
+</ul>
+<p><br/><br/></p>
+<div id="resumen-estadístico" class="section level2">
+<h2><span style="color:#0E9183"><strong>Resumen
+estadístico</strong>:</span></h2>
+<p>Medidas resumidas de tendencia central, como la
+<strong>media</strong>, la <strong>mediana</strong> y la
+<strong>moda</strong>. Dispersión, como la <strong>desviación
+estándar</strong>, <strong>rango</strong>, <strong>varianza, coficiente
+de variación</strong>, <strong>rango intercuartílico</strong>. Forma
+vomo el <strong>sesgo</strong> y la <strong>curtosos</strong> Por último
+los indicadores de posición como <strong>percentiles</strong>,
+<strong>deciles</strong>, <strong>cuartiles</strong>. Y de esta forma
+tener una idea general de la distribución de los datos.</p>
+<p><br/><br/></p>
+</div>
+<div id="visualización-de-datos" class="section level2">
+<h2><span style="color:#0E9183"><strong>Visualización de
+datos</strong>:</span></h2>
+<p>Utilizando gráficos y diagramas, dependiendo del tipo de variables y
+de sus escalas de medición:</p>
+<ul>
+<li><p>variables <strong>cualitaticas</strong> en escala
+<strong>nominal</strong>:</p>
+<ul>
+<li>diagramas circules o de torta</li>
+</ul></li>
+<li><p>variables <strong>cualitativas</strong> en escala
+<strong>ordinal</strong>:</p>
+<ul>
+<li>diagrama de barras</li>
+<li>diagramas likert</li>
+<li>diagramas de radar</li>
+</ul></li>
+<li><p>variables <strong>cuantitativas</strong> en escara de
+<strong>intervalo</strong> o de <strong>razón</strong> :</p>
+<ul>
+<li>histograma - hist</li>
+<li>diagrama de cajas - boxplot</li>
+<li>diagrama de dispersión - scaterplot</li>
+<li>diagrama de densidad</li>
+</ul></li>
+</ul>
+<p><br/><br/></p>
+</div>
+<div id="análisis-de-correlación" class="section level2">
+<h2><span style="color:#0E9183"><strong>Análisis de
+correlación</strong>:</span></h2>
+<p>Evaluar la relación entre variables mediante el cálculo de
+<strong>coeficientes de correlación</strong>, como el coeficiente de
+correlación de <strong>Pearson</strong> o de <strong>Spearman</strong>,
+para determinar si existe una asociación lineal o monotónica entre pares
+de variables.</p>
+<p><br/><br/></p>
+</div>
+<div id="exploración-de-datos-faltantes" class="section level2">
+<h2><span style="color:#0E9183"><strong>Exploración de datos
+faltantes</strong>:</span></h2>
+<p>Identificar y manejar <strong>valores faltantes</strong> en el
+conjunto de datos, comprendiendo la naturaleza y el patrón de los
+valores ausentes, y seleccionar la mejor estrategia para manejarlos, ya
+sea <strong>eliminándolos</strong>, <strong>imputándolos</strong> o
+utilizando técnicas más avanzadas.</p>
+<p><br/><br/></p>
+</div>
+<div id="detección-de-valores-atípicos" class="section level2">
+<h2><span style="color:#0E9183"><strong>Detección de valores
+atípicos</strong>:</span></h2>
+<p>Identificar observaciones que se desvían significativamente del
+patrón general de los datos, lo cual podría indicar errores en la
+recopilación de datos, mediciones inusuales o eventos extraordinarios.
+Uno de los métodos empleados para su detecciós es el gráfico de
+cajas.</p>
+<p><br/><br/></p>
+</div>
+<div id="transformación-de-variables" class="section level2">
+<h2><span style="color:#0E9183"><strong>Transformación de
+variables</strong>:</span></h2>
+<p>Aplicar transformaciones a las variables si es necesario, como la
+transformación <strong>logarítmica</strong>, para manejar sesgos,
+mejorar la simetría de la distribución o estabilizar la varianza.</p>
+<p><br/><br/></p>
+</div>
+<div id="análisis-de-tendencias-y-patrones-temporales"
+class="section level2">
+<h2><span style="color:#0E9183"><strong>Análisis de tendencias y
+patrones temporales</strong>:</span></h2>
+<p>Para conjuntos de datos temporales, explorar patrones
+<strong>estacionales</strong>, de <strong>tendencia</strong> o
+<strong>ciclos</strong> mediante técnicas como la descomposición de
+series temporales.</p>
+<p>Algunas de las cuales ya se han tradado en las sesiones
+anteriores.</p>
+<p>Empezaremos por los indicadores y posteriormente trataremos lo
+relacionado con los gráficos</p>
+<!-- [Volver al inicio](#inicio) -->
+</div>
 
 
 

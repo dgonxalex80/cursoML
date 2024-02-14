@@ -12,7 +12,7 @@
 <meta name="author" content="Manejo base de datos sobre violencia" />
 
 
-<title>Agrupamiento</title>
+<title>Resumen estadístico</title>
 
 <script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -446,16 +446,103 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore"><span
-style="color:#034a94"><strong>Agrupamiento</strong></span></h1>
-<h3 class="subtitle">Unidad 3</h3>
-<h4 class="author">Manejo base de datos sobre violencia</h4>
+<h1 class="title toc-ignore"><span style="color:#034a94"><strong>Resumen
+estadístico</strong></span></h1>
+<h3 class="subtitle"><strong>Análisis exploratorio de
+datos</strong></h3>
+<h4 class="author"><strong>Manejo base de datos sobre
+violencia</strong></h4>
 
 </div>
 
 
+<!-- ```{r, echo=FALSE, out.width="100%", fig.align = "center"} -->
+<!-- knitr::include_graphics("img/banner000.png") -->
+<!-- ``` -->
+<p><br/><br></p>
+<p>El <strong>Resumen Estadístico</strong> es una herramienta
+fundamental en el <strong>EDA</strong>, proporcionando una descripción
+de un conjunto de datos. Este resumen facilita la comprensión de las
+características principales de los datos, permitiendo identificar
+tendencias, valores atípicos y relaciones entre variables.</p>
+<p>Componentes principales del Resumen Estadístico:</p>
 <p><br/><br/></p>
+<div id="medidas-de-tendencia-central" class="section level3">
+<h3><strong>Medidas de tendencia central:</strong></h3>
+<p><br/></p>
+<ul>
+<li><strong>Media</strong>: Indica el “centro” de la distribución de
+datos.</li>
+<li><strong>Mediana</strong>: Valor que divide la distribución en dos
+mitades iguales(50% - 50%) .</li>
+<li><strong>Moda</strong>: Valor que a<br/>parece con mayor frecuencia,
+para el caso de variables cualitativas.</li>
+</ul>
 <p><br/><br/></p>
+</div>
+<div id="medidas-de-dispersión" class="section level3">
+<h3><strong>Medidas de dispersión:</strong></h3>
+<p><br/></p>
+<ul>
+<li><strong>Rango</strong>: Diferencia entre el valor máximo y
+mínimo.</li>
+<li><strong>Desviación estándar</strong> : Indica la variabilidad de los
+datos alrededor de la media.</li>
+<li><strong>Varianza</strong> : Cuadrado de la desviación estándar.</li>
+<li><strong>Coeficiente de variación</strong> : Representa que tan
+grande es la desviación estandar con respecto a su media en porcentaje.
+Permite diferenciar entre datos homogeneos y heterogeneos.</li>
+</ul>
+<p><br/><br/></p>
+</div>
+<div id="medidas-de-forma" class="section level3">
+<h3><strong>Medidas de forma</strong></h3>
+<p><br/></p>
+<ul>
+<li><p><strong>Coeficiente de asimetría</strong> : Indica si la
+distribución de datos se inclina hacia la izquierda (negativa) o hacia
+la derecha (positiva).</p></li>
+<li><p><strong>Coeficiente de curtosis</strong> : Indica si la
+distribución de datos es más aplanada (platicúrtica) o más puntiaguda
+(leptocúrtica) que la distribución normal.</p></li>
+</ul>
+<p><br/><br/></p>
+</div>
+<div id="medidas-de-posición" class="section level3">
+<h3><strong>Medidas de posición</strong></h3>
+<p><br/> * <strong>Mínimo</strong> : Valor más pequeño del conjunto de
+datos. * <strong>Máximo</strong> : Valor más grande del conjunto de
+datos. * <strong>Cuartiles</strong> : Dividen la distribución en cuatro
+partes iguales. * <strong>Percentiles</strong> : Dividen la distribución
+en 100 partes iguales.</p>
+<p>El Resumen Estadístico permite obtener una comprensión inicial de las
+características principales del conjunto de datos.</p>
+<p><br/><br/><br/></p>
+</div>
+<div id="ejemplo" class="section level3">
+<h3><strong>EJEMPLO</strong></h3>
+<pre class="r"><code>vsex22 &lt;-vsex22[, c(10,13,16)]
+summarytools::descr(vsex22)</code></pre>
+<pre><code>Descriptive Statistics  
+
+                       tasa     tasah     tasam
+----------------- --------- --------- ---------
+             Mean    202.10     49.53    365.36
+          Std.Dev    218.66    126.63    416.77
+              Min      3.26      0.00      0.00
+               Q1     62.19      0.00    100.30
+           Median    128.16      0.00    226.24
+               Q3    261.55     47.28    481.93
+              Max   2063.49   2446.48   3252.03
+              MAD    121.94      0.00    227.80
+              IQR    199.29     47.24    381.61
+               CV      1.08      2.56      1.14
+         Skewness      2.55      6.18      2.50
+      SE.Skewness      0.05      0.05      0.05
+         Kurtosis      9.08     68.74      8.14
+          N.Valid   2535.00   2535.00   2535.00
+        Pct.Valid     99.84     99.84     99.84</code></pre>
+</div>
 
 
 

@@ -1,0 +1,99 @@
+---
+title: <span style="color:#034a94">**Determinación de valores atípicos**</span> 
+subtitle: "**Análisis exploratorio de datos**"
+author: "**Manejo base de datos sobre violencia**"
+date: " "
+output:
+  html_document:
+    toc: no
+    toc_depth: 2
+    toc_float: yes
+    code_folding: hide
+    css: style.css
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+
+c1 ="#3B566E"  # azul oscuro- color primario 
+c2 ="#6487A5"  # azul claro- color secundario
+c3 ="#2ED199"  # verdeclaro - color terciario
+c4 ="#F2F2F2"  # gris muy claro - color texto
+c5 ="#8DA9C4"  # azul claro 
+c6= "#04BA80"  # verde claro
+c7= "#0E9183"  # verde oscuro
+
+
+
+library(readxl) # paquete para leer libros de excel
+violencia_sex_2022 <- read_excel("data/Indicadores_infancia_adolescencia_juventud_Procuraduria_2022.xlsx", 
+                                 sheet = "Ind. Violencia Sexual", 
+                                 range = "B9:AJ2548")
+
+
+nvs22=names(violencia_sex_2022)
+# 02- CAMBIO NOMBRE DE VARIABLES
+names(violencia_sex_2022)=c("cdep","cmun","cindica", "nomind","contexto", "periodo",
+                            "edadR", "casos", "poblacion","tasa", "casosh", "poblacionh", 
+                            "tasah", "casosm", "poblacionm", "tasam", "casosNA", 
+                            "poblacionNA", "tasaNA",   "rural", "urbana",  "sininfor", 
+                            "desplazados", "otros", "discapacitados",    "nodiscapacitados", 
+                            "discapacitadoNA", "indigena", "negro", "palenquero", 
+                            "raizal",  "ROM", "Sinetnica", "Sininformación", "TOTAL", "tipo") 
+
+
+
+# 03- SELECCION DE VARIABLES
+vsex22 <- violencia_sex_2022
+
+```
+
+
+<!-- ```{r, echo=FALSE, out.width="100%", fig.align = "center"} -->
+<!-- knitr::include_graphics("img/banner000.png") -->
+<!-- ``` -->
+
+<br/><br/>
+
+
+La detección de **valores atípicos** es una etapa crucial del EDA que busca identificar valores que se desvían significativamente del resto de la distribución de datos. Estos valores pueden ser errores en la medición o representar casos excepcionales que requieren atención especial.
+
+Métodos para la detección de valores atípicos:
+
+<br/><br/>
+
+## **Métodos estadísticos**:
+
+<br/>
+
+### **Z-score**: 
+
+Calcula la distancia entre un valor y la media en unidades de desviación estándar.
+
+**Prueba de Grubbs**: Detecta valores atípicos en conjuntos de datos pequeños.
+
+**Prueba de Dixon**: Detecta valores atípicos en conjuntos de datos normales.
+
+<br/><br/>
+
+**Visualización de datos**:
+
+**Histogramas**: Permiten observar la distribución de los datos y detectar valores que se alejan del patrón general.
+
+**Diagramas de caja**: Muestran la mediana, los cuartiles y los valores atípicos de una variable.
+
+**Diagramas de dispersión**: Permiten identificar valores atípicos en la relación entre dos variables.
+
+<br/><br/>
+
+### **Consideraciones**
+
+<br/>
+
+**Tamaño del conjunto de datos**: Los métodos estadísticos son más sensibles a valores atípicos en conjuntos de datos pequeños.
+
+**Distribución de los datos**: Los métodos estadísticos asumen una distribución normal de los datos.
+Contexto del estudio: Es importante considerar el contexto del estudio para determinar si un valor atípico es un error o un caso excepcional.
+
+<br/><br/>
