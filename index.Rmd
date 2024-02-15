@@ -49,6 +49,9 @@ knitr::include_graphics("img/SeminarioML.png")
 
 <br/><br/>
 
+
+
+
 ## <span style="color:#0E9183"> **Unidad 2:**</span>  
 
 ### <span style="color:#0E9183">**Preparación de datos**</span>
