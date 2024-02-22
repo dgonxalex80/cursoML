@@ -457,14 +457,15 @@ de base de datos IML</strong></span></h1>
 <p><br/><br/></p>
 <p><br/><br/></p>
 <p>En el objetivo de poner en practica lo desarrollado en el módulo, se
-presenta la siguiente guía que puede ser ejecutada en RStudio Cloud o en
-RStudio instaldo localmente.</p>
+presenta la siguiente guía que puede ser ejecutada en
+<code>RStudio Cloud</code> o en <code>RStudio</code> instalado
+localmente.</p>
 <p>El material utilizado durante el proceso tambien estará disponible en
 el repositorio de github : <strong><a
 href="https://github.com/dgonxalex80/seminarioML.git"
 class="uri">https://github.com/dgonxalex80/seminarioML.git</a></strong></p>
-<p>Se recomienda clonar el repositorio en RStudio (como se realzó en las
-sesiones - ver videos)</p>
+<p>Se recomienda clonar el repositorio en RStudio (como se realizó en
+las sesiones - ver videos)</p>
 <p><br/><br/></p>
 <div id="paso-1" class="section level2">
 <h2><strong>Paso 1</strong></h2>
@@ -474,7 +475,7 @@ class="section level3">
 <p>Se descargan las bases de datos desde el observatorio de
 violencia</p>
 <p><img src="img/observatorio.png" width="100%" style="display: block; margin: auto;" /></p>
-<p>Y posteriormente se alojan todos libros de excel en el directorio
+<p>Y posteriormente se guardan todos libros de excel en el directorio
 <code>data</code></p>
 <p><br/><br/></p>
 <p><img src="img/libros.png" width="100%" style="display: block; margin: auto;" /></p>
@@ -550,7 +551,7 @@ vsex_2022</p>
 class="section level3">
 <h3><strong>INSPECCIÓN DE LAS BASES DE DATOS IMPORTATAS</strong></h3>
 <p>Con el fin de estudiar la estructura de las bases se emplea la
-función de R str</p>
+función de R <code>str</code></p>
 <pre class="r"><code>str(vsex_2022)</code></pre>
 <pre><code>tibble [2,539 × 35] (S3: tbl_df/tbl/data.frame)
  $ Código Departamento              : num [1:2539] 91 91 91 91 91 91 91 91 91 91 ...
@@ -719,9 +720,9 @@ names(vsex22)</code></pre>
 <h2><strong>Paso 6</strong></h2>
 <div id="union-de-las-bases-de-datos" class="section level3">
 <h3><strong>UNION DE LAS BASES DE DATOS</strong></h3>
-<p>En este paso se emplea la funcion rbind() . Esta función requiere que
-las bases a unir tengan el mismo número de variables y que sus nombre
-sean iguales.</p>
+<p>En este paso se emplea la funcion <code>rbind()</code> . Esta función
+requiere que las bases a unir tengan el mismo número de variables y que
+sus nombre sean iguales.</p>
 <pre class="r"><code>vsex = rbind(vsex13,
                       vsex14,
                       vsex15,
@@ -815,7 +816,8 @@ casosm       85
 poblacionm  104
 tasam       104</code></pre>
 <p>Antes de pensar en eliminar la variables contexto, dado el gran
-número de datos faltantes (NA), se explora su distribución</p>
+número de datos faltantes (<code>NA</code>), se explora su
+distribución</p>
 <pre class="r"><code>table(vsex$contexto, vsex$edadR)</code></pre>
 <pre><code>                        
                             1    2    3    4    5
