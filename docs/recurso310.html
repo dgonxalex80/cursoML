@@ -12,7 +12,7 @@
 <meta name="author" content="Manejo base de datos sobre violencia" />
 
 
-<title>Regresión Lineal</title>
+<title>Regresión</title>
 
 <script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -447,7 +447,7 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore"><span
-style="color:#034a94"><strong>Regresión Lineal</strong></span></h1>
+style="color:#034a94"><strong>Regresión</strong></span></h1>
 <h3 class="subtitle">Unidad 3</h3>
 <h4 class="author">Manejo base de datos sobre violencia</h4>
 
@@ -456,6 +456,732 @@ style="color:#034a94"><strong>Regresión Lineal</strong></span></h1>
 
 <p><br/><br/></p>
 <p><br/><br/></p>
+<div id="correlación-y-regresión-lineal" class="section level1">
+<h1><span style="color:#0E9183"><strong>Correlación y Regresión
+Lineal</strong></span></h1>
+<p>En el análisis de datos, la <strong>correlación</strong> y la
+<strong>regresión lineal</strong> son dos conceptos fundamentales para
+entender las relaciones lineales entre variables cuantitativas. En la
+gráfica, visualizamos ambos conceptos, los cuales están relacionados
+pero no son lo mismo, en esta unidad los definiremos.</p>
+<pre class="r"><code>par(mfrow = c(1, 2))
+set.seed(1)
+x &lt;- 1:100
+y &lt;- x + rnorm(100, mean = 0, sd = 15)
+
+# Creamos el gráfico
+plot(x, y, pch = 19, col = &quot;lightblue&quot;, las=1)
+plot(x, y, pch = 19, col = &quot;lightblue&quot;, las=1) 
+# Línea de regresión
+abline(lm(y ~ x), col = &quot;red&quot;, lwd = 3)
+
+# Correlación de Pearson
+text(paste(&quot;Cor:&quot;, round(cor(x, y), 2)), x = 25, y = 95)</code></pre>
+<p><img src="recurso310_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br/><br/></p>
+<div id="correlación" class="section level2">
+<h2><span style="color:#0E9183"><strong>Correlación</strong></span></h2>
+<p>La correlación estudia si existe asociación entre dos variables
+cuantitativas y establece cuál es la dirección y la magnitud de esa
+asociación. Es importante para entender cómo estas variables están
+relacionadas entre sí.</p>
+<ul>
+<li><p><strong>Asociación Lineal</strong>: La correlación examina si hay
+una relación lineal entre las variables. Esto significa que a medida que
+una variable aumenta, la otra también aumenta (correlación positiva), o
+a medida que una variable disminuye, la otra disminuye (correlación
+negativa).</p></li>
+<li><p><strong>Magnitud de la Relación</strong>: La correlación
+proporciona información sobre la fuerza de la relación entre las
+variables. Un coeficiente de correlación cercano a <span
+class="math inline">\(\pm 1\)</span> indica una relación fuerte,
+mientras que cerca de <span class="math inline">\(0\)</span> indica una
+relación débil.</p></li>
+</ul>
+<p><br/><br/></p>
+<div id="interpretación" class="section level3">
+<h3><span
+style="color:#0E9183"><strong>Interpretación</strong></span></h3>
+<p>La correlación es una medida numérica que va desde -1 hasta 1.</p>
+<ul>
+<li>Un coeficiente de <span class="math inline">\(1\)</span> indica una
+correlación perfectamente positiva.</li>
+<li>Un coeficiente de <span class="math inline">\(-1\)</span> indica una
+correlación perfectamente negativa.</li>
+<li>Un coeficiente de <span class="math inline">\(0\)</span> indica que
+no hay correlación lineal.</li>
+</ul>
+<p><br/><br/></p>
+<pre class="r"><code># Cargar la librería
+library(ggplot2)
+
+# Crear un conjunto de datos de ejemplo
+set.seed(123)
+datos &lt;- data.frame(
+  X = 1:100,                                   # Variable X: correlación positiva
+  Y_positiva = 1:100 + rnorm(100, sd = 10),    # Variable Y con correlación positiva
+  Y_negativa = 100:1 + rnorm(100, sd = 10),    # Variable Y con correlación negativa
+  Y_sin_asociacion = rnorm(100, sd = 10)       # Variable Y sin asociación
+)
+
+# Gráfico de dispersión para correlación positiva
+ggplot(datos, aes(x = X, y = Y_positiva)) +
+  geom_point(color = &quot;blue&quot;) +
+  #geom_smooth(method = &quot; &quot;, se = FALSE) +
+  labs(title = &quot;Correlación Positiva&quot;,
+       x = &quot;Variable X&quot;,
+       y = &quot;Variable Y_positiva&quot;)</code></pre>
+<p><img src="recurso310_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code># Gráfico de dispersión para correlación negativa
+ggplot(datos, aes(x = X, y = Y_negativa)) +
+  geom_point(color = &quot;red&quot;) +
+  #geom_smooth(method = &quot; &quot;, se = FALSE) +
+  labs(title = &quot;Correlación Negativa&quot;,
+       x = &quot;Variable X&quot;,
+       y = &quot;Variable Y_negativa&quot;)</code></pre>
+<p><img src="recurso310_files/figure-html/unnamed-chunk-2-2.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code># Gráfico de dispersión para sin asociación
+ggplot(datos, aes(x = X, y = Y_sin_asociacion)) +
+  geom_point(color = &quot;green&quot;) +
+  #geom_smooth(method = &quot; &quot;, se = FALSE) +
+  labs(title = &quot;Sin Asociación&quot;,
+       x = &quot;Variable X&quot;,
+       y = &quot;Variable Y_sin_asociacion&quot;)</code></pre>
+<p><img src="recurso310_files/figure-html/unnamed-chunk-2-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br/><br/></p>
+</div>
+</div>
+<div id="ejemplo-sin-datos" class="section level2">
+<h2><span style="color:#0E9183"><strong>Ejemplo (sin
+datos)</strong></span></h2>
+<p>La correlación puede ser útil para estudiar la relación entre ciertas
+variables biomédicas y el tiempo de supervivencia después de un evento,
+como un accidente o una intoxicación.</p>
+<p>Supongamos que un estudio médico está investigando la relación entre
+la <strong>cantidad de una sustancia tóxica</strong> en el cuerpo de una
+persona (variable <span class="math inline">\(X\)</span>) y el
+<strong>tiempo de supervivencia</strong> después de la intoxicación
+(variable <span class="math inline">\(Y\)</span>).</p>
+<p><br/><br/></p>
+<div id="hipótesis" class="section level4">
+<h4><span style="color:#3B566E"><strong>Hipótesis</strong></span></h4>
+<p><strong>¿Será que a medida que aumenta la cantidad de la sustancia
+tóxica en el cuerpo, el tiempo de supervivencia disminuye?</strong></p>
+<p>Imaginemos que al recolectar datos de varios casos de intoxicación,
+se calcula el coeficiente de correlación entre la cantidad de la
+sustancia tóxica y el tiempo de supervivencia. Asumamos que para el
+conjunto de datos, el coeficiente de correlación fue <span
+class="math inline">\(-0.75\)</span>.</p>
+<p>Esto nos indica que tenemos una correlación negativa fuerte entre la
+cantidad de sustancia tóxica en el cuerpo y el tiempo de supervivencia.
+Esto se interpreta como que cuanto mayor sea la cantidad de la sustancia
+tóxica en la sangre, menor será el tiempo de supervivencia.</p>
+<p>Asumiendo que los datos tuvieron ese comportamiento, gráficamete se
+podrían ver en esta dirección.</p>
+<p><br/><br/></p>
+<pre class="r"><code>ggplot(datos, aes(x = X, y = Y_negativa)) +
+  geom_point(color = &quot;violet&quot;) +
+  #geom_smooth(method = &quot; &quot;, se = FALSE) +
+  labs(title = &quot;Correlación Negativa&quot;,
+       x = &quot;Concentración sustancia tóxica&quot;,
+       y = &quot;Tiempo de supervivencia del paciente&quot;)</code></pre>
+<p><img src="recurso310_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br/><br/></p>
+<p><strong>Observación</strong> No olvidar que en el esquema de análisis
+de datos, es importante inicia desde lo descriptivo. Por tal razón, este
+indicador, la correlación, se debe calcular antes de proceder con el
+siguiente concepto.</p>
+<p><br/><br/></p>
+</div>
+</div>
+</div>
+<div id="regresión-lineal" class="section level1">
+<h1><span style="color:#0E9183"><strong>Regresión
+Lineal</strong></span></h1>
+<p>La regresión va un paso más allá que la correlación y trata de
+construir un modelo que nos permita predecir el valor de una de las
+variables (la dependiente) en función del valor que tome la otra
+variable (la independiente).</p>
+<p><br/><br/></p>
+<div id="tipos-de-regresión" class="section level2">
+<h2><span style="color:#0E9183"><strong>Tipos de
+Regresión</strong></span></h2>
+<p>La regresión puede ser simple o múltiple, según el número de
+variables independientes o explicativas que se introduzcan en el modelo.
+Además, existen una serie de modelos de regresión, que pueden expresarse
+mediante la siguiente ecuación:</p>
+<p><span class="math display">\[
+funcion(y) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_n x_n + e
+\]</span></p>
+<p>Según la función que apliquemos a la variable dependiente <span
+class="math inline">\(y\)</span> y el tipo de esta variable, definiremos
+los distintos modelos de regresión.</p>
+<p><br/><br/></p>
+<div id="regresión-lineal-simple" class="section level3">
+<h3><span style="color:#0E9183"><strong>Regresión Lineal
+Simple</strong></span></h3>
+<p>En esta sección nos centraremos en el caso más sencillo, el de la
+regresión lineal simple, aplicado a dos variables cuantitativas, una de
+ellas la variable independiente <span class="math inline">\(x\)</span> y
+la otra la dependiente <span class="math inline">\(y\)</span>.</p>
+<p>Podemos representar la recta de regresión lineal simple mediante la
+siguiente ecuación:</p>
+<p><span class="math display">\[
+y = \beta_0 + \beta_1 x+ e
+\]</span></p>
+<p>En la ecuación, <span class="math inline">\(\beta_0\)</span> y <span
+class="math inline">\(\beta_1\)</span> son los coeficientes de
+regresión.</p>
+<ul>
+<li><p>El componente <span class="math inline">\(\beta_0\)</span>
+representa el valor de <span class="math inline">\(y\)</span> cuando
+<span class="math inline">\(x\)</span> vale <span
+class="math inline">\(0\)</span>. Se denomina intercepto, ya que es el
+punto donde la representación gráfica de la línea de regresión cruza el
+eje de ordenadas.</p></li>
+<li><p>En el caso de <span class="math inline">\(\beta_1\)</span> este
+representa la pendiente (inclinación) de la recta de regresión. Este
+coeficiente nos dice el incremento de unidades de la variable <span
+class="math inline">\(y\)</span> que se produce por cada incremento de
+una unidad de la variable <span
+class="math inline">\(x\)</span>.</p></li>
+<li><p>Por último, el componente <span class="math inline">\(e\)</span>
+representa la variabilidad aleatoria del modelo. Esta variabilidad será
+la responsable de la diferencia que se produzca entre la predicción del
+modelo de regresión y el valor real observado en el estudio.</p></li>
+</ul>
+<p><br/><br/></p>
+</div>
+<div id="cómo-se-obtienen-los-coeficientes-de-regresión"
+class="section level3">
+<h3><span style="color:#0E9183"><strong>¿Cómo se obtienen los
+coeficientes de regresión?</strong></span></h3>
+<p>El método más empleado para calcular el valor de los coeficientes de
+regresión es el de mínimos cuadrados. En el análisis de datos,
+actualmente este proceso no se realiza de forma manual. Más adelante,
+veremos cómo se procede en R.</p>
+<p>El problema es que, una vez que tenemos el diagrama de dispersión,
+ninguna recta se va a ajustar de manera perfecta a la nube de puntos.
+Sabemos que la recta pasará por el punto que marcan las coordenadas de
+las medias de <span class="math inline">\(x\)</span> e <span
+class="math inline">\(y\)</span>, pero la situación es que pueden
+trazarse infinitas rectas que pasen por un punto dado. ¿Cuál será la
+recta que nos interesa? ¿Cuál será la recta que mejor se ajusta?</p>
+<p>Imaginemos cualquiera de estas posibles rectas de regresión. Si
+intentamos calcular un valor de <span class="math inline">\(y\)</span>
+determinado (<span class="math inline">\(y_i\)</span>) a partir de un
+valor de <span class="math inline">\(x\)</span> (<span
+class="math inline">\(x_i\)</span>) habrá una diferencia entre el valor
+real de <span class="math inline">\(y_i\)</span> y el que obtengamos (el
+valor estimado, representado como <span
+class="math inline">\(\hat{y}_i\)</span>) con la recta:</p>
+<p><span class="math display">\[y_i=\beta_0 + \beta_1 x_i+
+e_i\]</span></p>
+<p><br/><br/></p>
+<p><img src="img/plot1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><br/><br/></p>
+<p>Observemos que la diferencia entre el valor real de <span
+class="math inline">\(y_i\)</span> en nuestra nube de puntos y el que
+nos proporcionaría la ecuación de la recta, podemos representarlo de la
+siguiente forma</p>
+<p><span class="math display">\[e_i=|y_{i}-\hat{y}_i| .\]</span></p>
+<p><br/><br/></p>
+</div>
+</div>
+<div id="ejemplo" class="section level2">
+<h2><span style="color:#0E9183"><strong>Ejemplo</strong></span></h2>
+<p>Veamos un ejemplo utilizando R y la base de datos IndCT_IMC.RData, la
+cual hace parte de los conjuntos de datos que están en el programa.</p>
+<p>Esta base de datos recoge algunos datos antropométricos de una serie
+de <span class="math inline">\(58\)</span> niños, que incluyen dos
+variables que se asocian a riesgo cardiovascular.</p>
+<ul>
+<li>El índice de cintura-talla (IndCT)</li>
+<li>El índice de masa corporal estandarizado por edad y sexo
+(IMC_DS).</li>
+</ul>
+<p>Estamos interesados en estimar el IMC_DS a partir de la medición del
+IndCT. En la realidad, los valores del IMC_DS oscilan entre <span
+class="math inline">\(-2.2\)</span> y <span
+class="math inline">\(+2.7\)</span> y el IndCT tiene valores entre <span
+class="math inline">\(0.36\)</span> y <span
+class="math inline">\(0.58\)</span>.</p>
+<p>Inicialmente, carguemos el conjunto de datos:</p>
+<p><br/><br/></p>
+<pre class="r"><code>load(&quot;data/IndCT_IMC.Rdata&quot;)
+Datos&lt;-Dataset
+class(Datos)</code></pre>
+<pre><code>[1] &quot;data.frame&quot;</code></pre>
+<p>Observe que definimos el conjunto de datos como <em>Datos</em> y con
+la función <em>class</em> identificamos el tipo de objeto.</p>
+<p>Ahora, procedemos a observar la estructura del conjunto de datos, lo
+cual nos ayuda a identificar la naturaleza de las variables:</p>
+<pre class="r"><code>str(Datos)</code></pre>
+<pre><code>&#39;data.frame&#39;:   58 obs. of  9 variables:
+ $ sexo   : num  1 1 2 1 1 2 2 1 1 1 ...
+ $ Edad   : num  8.01 3.04 6.04 3.04 9.02 ...
+ $ Peso   : num  38 12.4 31.6 15.9 30.2 ...
+ $ Talla  : num  139.5 94.6 127 95.5 131.9 ...
+ $ IMC    : num  19.5 13.9 19.6 17.4 17.4 ...
+ $ PesoDS : num  2.872 -1.482 3.047 0.627 0.312 ...
+ $ TallaDS: num  2.55725 -0.17262 2.90828 0.09524 0.00917 ...
+ $ IMC_DS : num  1.512 -2.226 1.662 0.832 0.287 ...
+ $ IndCT  : num  0.437 0.476 0.449 0.539 0.455 ...</code></pre>
+<p><br/><br/></p>
+<p><strong>Observación</strong> Se debe tener especial cuidado con la
+naturaleza de las variables. Por ejemplo, note que la variable
+<em>sex</em> fue clasificada como <em>num</em> (numérica), pero sabemos
+que es categórica. Así que en caso de realizar algún análisis con esta
+primero se debe modificar como categórica, es decir,
+sex.n=as.character(sex).</p>
+<p>Recordemos que para seguir el ciclo de los datos, es indispensable
+calcular algún indicador descriptivo, iniciamos diciendo que para la RL
+el inidcador sería la correlación.</p>
+<p><br/><br/></p>
+<div id="correlación-1" class="section level3">
+<h3><strong>Correlación</strong></h3>
+<p>Observemos primero si existe una relación lineal entre las dos
+variables, de interés:</p>
+<pre class="r"><code>cor(Datos$IMC_DS,Datos$IndCT)</code></pre>
+<pre><code>[1] 0.6158207</code></pre>
+<p>también gráficamente, podemos observar</p>
+<pre class="r"><code>plot(Datos$IMC_DS,Datos$IndCT)</code></pre>
+<p><img src="recurso310_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>En este gráfico de dispersión podemos comprobar la forma de la nube
+de puntos y la tendencia que siguen ambas variables.</p>
+<p>Si observamos el gráfico, vemos que los puntos tienden a
+distribuirse, aproximadamente, a lo largo de una recta en sentido
+ascendente hacia la derecha. Viendo la forma de la nube de puntos,
+parece razonable suponer que exista una relación lineal entre las dos
+variables.</p>
+<p>Por la tanto, nos proponemos ajustar un modelo de regresión lineal
+simple entre las dos variables, siendo IndCT la variable independiente e
+IMC_DS la variable dependiente.</p>
+<p><br/><br/></p>
+</div>
+</div>
+<div id="regresión-lineal-en-r" class="section level2">
+<h2><span style="color:#0E9183"><strong>Regresión lineal en
+R</strong></span></h2>
+<p>La función que se utiliza en R, para esta tipo de aproximación es
+<strong>lm</strong>, cuya fórmula implica que la variable dependiente
+<span class="math inline">\(Y\)</span> debe estar en función de <span
+class="math inline">\(X\)</span>, esto <span class="math inline">\(Y\sim
+X\)</span>.</p>
+<pre class="r"><code>modelo&lt;-lm(formula=Datos$IMC_DS~Datos$IndCT, data=Datos)
+summary(modelo)</code></pre>
+<pre><code>
+Call:
+lm(formula = Datos$IMC_DS ~ Datos$IndCT, data = Datos)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.52522 -0.60399  0.08176  0.61355  1.83523 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   -7.406      1.309  -5.659 5.41e-07 ***
+Datos$IndCT   16.198      2.769   5.849 2.67e-07 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.9632 on 56 degrees of freedom
+Multiple R-squared:  0.3792,    Adjusted R-squared:  0.3682 
+F-statistic: 34.21 on 1 and 56 DF,  p-value: 2.672e-07</code></pre>
+<p><br/><br/></p>
+<p>A través de <strong>summary</strong> podemos obtener los coeficientes
+y también una estimación del porcentaje de variabilidad de la variable
+IMC_DS que explica la variable IndCT, el “Adjusted R squared” o R
+cuadrado ajustado de valor <span class="math inline">\(0.3682\)</span>;
+se interpreta como que el IndCT explica el <span
+class="math inline">\(36.82\%\)</span> de la variabilidad del
+IMC_DS.</p>
+<p>Vemos que ambos coeficientes son significativos, con lo que validamos
+el siguiente modelo de regresión lineal simple</p>
+<p><span class="math display">\[IMC_{DS} = -7.4 +
+16.2IndCT\]</span>.</p>
+<p>El modelo nos dice que por cada unidad de IndCT el IMC_DS aumenta
+<span class="math inline">\(16.2\)</span> unidades. Considerando que el
+IndCT adopta valores entre <span class="math inline">\(0.36\)</span> y
+<span class="math inline">\(0.58\)</span>, resulta más intuitivo
+interpretar que por cada <span class="math inline">\(0.1\)</span>
+unidades de IndCT, el IMC_DS aumenta <span
+class="math inline">\(1.62\)</span> unidades.</p>
+<p>Una forma de validar el modelo es mediante su diagnóstico del modelo,
+comprobando los supuestos de linealidad, homocedasticidad, normalidad e
+independencia. En este documento no realizamos este diagnóstico.</p>
+<p><br/><br/></p>
+</div>
+<div id="regresión-lineal-múltiple-en-r" class="section level2">
+<h2><span style="color:#0E9183"><strong>Regresión lineal Múltiple en
+R</strong></span></h2>
+<p>Iniciemos observando si en la base de datos, existen otro tipos de
+relaciones lineales de interés.</p>
+<p>En R existen distintos tipo de gráficas en la Unidad de
+visualización, se abordará en las estructuras de las mismas, una de
+ellas es la correlación para todas las variables de la base de
+datos.</p>
+<p><br/><br/></p>
+<pre class="r"><code>library(corrplot)</code></pre>
+<pre><code>corrplot 0.92 loaded</code></pre>
+<pre class="r"><code>M=cor(Datos)
+corrplot(M, method = &#39;number&#39;)</code></pre>
+<p><img src="recurso310_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br/><br/></p>
+<p>Dadas las relaciones lineales observadas, vamos a probar otro
+modelo</p>
+<pre class="r"><code>Modelo2=lm(formula=Datos$IMC_DS ~ Datos$IMC + Datos$Peso, data=Datos)
+summary(Modelo2)</code></pre>
+<pre><code>
+Call:
+lm(formula = Datos$IMC_DS ~ Datos$IMC + Datos$Peso, data = Datos)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.07949 -0.22268  0.05026  0.20913  0.67541 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -8.18350    0.35323 -23.167  &lt; 2e-16 ***
+Datos$IMC    0.54704    0.02707  20.207  &lt; 2e-16 ***
+Datos$Peso  -0.04374    0.00536  -8.161 4.77e-11 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.3392 on 55 degrees of freedom
+Multiple R-squared:  0.9244,    Adjusted R-squared:  0.9217 
+F-statistic: 336.3 on 2 and 55 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Así, sucesivamente, podemos plantear los distintos modelos,
+considerando las relaciones de interés para el investigador.</p>
+<p><br/><br/></p>
+</div>
+</div>
+<div id="regresión-logística" class="section level1">
+<h1><span style="color:#0E9183"><strong>Regresión
+Logística</strong></span></h1>
+<p>La regresión logística es un tipo de modelo estadístico utilizado
+para predecir la probabilidad de ocurrencia de un evento binario dado un
+conjunto de variables independientes.</p>
+<p>Este método es el recomendado cuando se trabaja con una variable
+respuesta <span class="math inline">\(Y\)</span>, cualitativa con dos
+niveles, tanto con uno (regresión logística simple) como con múltiples
+predictores (regresión logística múltiple).</p>
+<p>Al igual que en el caso de regresión, en los problemas de
+clasificación contamos con un conjunto de datos que usamos para generar
+el clasificador. El objetivo es que nuestro modelo funcione bien no sólo
+con las observaciones de entrenamiento, sino con nuevas
+observaciones.</p>
+<p>En su forma más básica, la regresión logística utiliza una función
+logística para modelar la relación entre las variables
+independientes.</p>
+<p><img src="img/plot2.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><br/><br/></p>
+<div id="regresión-logística-simple" class="section level2">
+<h2><span style="color:#0E9183"><strong>Regresión logística
+simple</strong></span></h2>
+<p>Dada una variable respuesta <span class="math inline">\(Y\)</span>
+categórica con dos niveles, la regresión logística modela la
+probabilidad de que <span class="math inline">\(Y\)</span> pertenezca a
+una categoría o nivel particular, dados los valores de un único
+predictor <span class="math inline">\(X\)</span></p>
+<p><span class="math display">\[P \left( Y / X \right) = \frac{1}{1 +
+e^{-(\beta_{0} + \beta_{1}x)}} + \epsilon = \frac{e^{(\beta_{0} +
+\beta_{1}x)}}{1 + e^{(\beta_{0} + \beta_{1}x)}}
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(P(Y=1|X)\)</span> es la probabilidad
+de que la variable dependiente.</p></li>
+<li><p><span class="math inline">\(e\)</span> es la base del logaritmo
+natural, aproximadamente igual a <span
+class="math inline">\(2.71828\)</span></p></li>
+<li><p><span class="math inline">\(\beta_0\)</span> y <span
+class="math inline">\(\beta_1\)</span> son los coeficientes del modelo,
+que representan el efecto de cada variable independiente en el logaritmo
+de la razón de probabilidades.</p></li>
+</ul>
+<p>El objetivo de la regresión logística es estimar los valores de los
+coeficientes que mejor ajusten el modelo a los datos observados. Esto se
+logra maximizando la función de verosimilitud, que mide qué tan probable
+es observar los datos que tenemos dados los parámetros del modelo.</p>
+<p>Una vez que se han estimado los coeficientes, el modelo puede usarse
+para predecir la probabilidad de que ocurra el evento de interés para
+nuevas observaciones con valores de las variables independientes.</p>
+<p><br/><br/></p>
+<p><strong>Observación 1</strong> En resumen, la regresión logística es
+una técnica ampliamente utilizada en el análisis de datos cuando la
+<strong>variable dependiente</strong> es <strong>categórica</strong> y
+binaria. Permite modelar y predecir la probabilidad de ocurrencia de un
+evento en función de un conjunto de variables independientes.</p>
+<p><br/><br/></p>
+<p><strong>Observación 2</strong> En una regresión logística la variable
+respuesta (dependiente) es una variable binaria (dicótoma en términos
+generales), y las variables predictoras (independientes) pueden ser
+binarias, categóricas o continuas.</p>
+<p><br/><br/></p>
+</div>
+<div id="ejemplo-1" class="section level2">
+<h2><span style="color:#0E9183"><strong>Ejemplo</strong></span></h2>
+<p>Procedemos a cargar los datos, los cuales también están en R.
+Recordemos que la función <em>class</em> nos permite identificar el tipo
+de objeto y la función <em>str</em> la estrutura y naturaleza d elas
+variables.</p>
+<pre class="r"><code>load(&quot;data/GEA_ped.RData&quot;)
+Datos1&lt;-GEA_ped
+class(Datos1)</code></pre>
+<pre><code>[1] &quot;data.frame&quot;</code></pre>
+<pre class="r"><code>str(Datos1)</code></pre>
+<pre><code>&#39;data.frame&#39;:   256 obs. of  16 variables:
+ $ sexo          : Factor w/ 2 levels &quot;Femenino&quot;,&quot;Masculino&quot;: 2 1 1 1 1 1 2 1 2 2 ...
+ $ edaddec       : num  2.3 3.3 10.58 9.76 12.14 ...
+ $ esting        : chr  &quot;inv&quot; &quot;inv&quot; &quot;inv&quot; &quot;inv&quot; ...
+ $ hec_nume      : int  0 0 4 0 0 0 0 0 9 0 ...
+ $ fiebre_m      : num  38.8 36.5 37.2 36.5 37.4 37 37.6 37.6 37.2 38.4 ...
+ $ leucocit      : num  8.7 4.6 12.5 8.5 4.5 9.9 12.2 13.1 8.3 17.9 ...
+ $ gea_virica    : Factor w/ 2 levels &quot;No&quot;,&quot;Si&quot;: 1 2 1 1 1 1 1 2 1 1 ...
+ $ gea_bacteriana: Factor w/ 2 levels &quot;No&quot;,&quot;Si&quot;: 1 1 1 1 1 1 2 1 1 2 ...
+ $ sangre_heces  : Factor w/ 2 levels &quot;No&quot;,&quot;Si&quot;: 1 1 2 1 1 1 1 1 1 1 ...
+ $ moco_heces    : Factor w/ 2 levels &quot;No&quot;,&quot;Si&quot;: 2 1 1 1 1 1 1 1 1 1 ...
+ $ vomitos       : Factor w/ 2 levels &quot;No&quot;,&quot;Si&quot;: 2 2 2 2 2 2 1 2 1 2 ...
+ $ catarro       : Factor w/ 2 levels &quot;No&quot;,&quot;Si&quot;: 2 1 2 1 2 1 2 1 1 1 ...
+ $ atb_prev      : int  1 0 0 0 0 1 NA 1 0 0 ...
+ $ desv_izq      : int  0 0 1 0 0 1 0 0 0 1 ...
+ $ Edad2a        : Factor w/ 2 levels &quot;No&quot;,&quot;Si&quot;: 1 1 1 1 1 1 2 2 1 2 ...
+ $ Edad2asang    : chr  &quot;No&quot; &quot;No&quot; &quot;No&quot; &quot;No&quot; ...</code></pre>
+<p>La base de datos se recoge un estudio transversal de <span
+class="math inline">\(256\)</span> niños sobre algunos factores de
+riesgo asociados con diarrea aguda (bacteriana o no bacteriana). Nos
+interesa saber si la variable sangre en heces (sangre_heces) codificada
+como dicotómica (0 = no, 1 = sí) está asociada a gastroenteritis
+bacteriana (gea_bacteriana) codificada como dicotómica (0 = no, 1 =
+sí).</p>
+<p><br/><br/></p>
+<div id="descriptivo" class="section level3">
+<h3><strong>Descriptivo </strong></h3>
+<p>En primer lugar, veremos la distribución de frecuencias de sangre en
+heces en las gastroenteritis agudas (GEA) bacterianas y no
+bacterianas.</p>
+<pre class="r"><code>library(ggplot2)
+ggplot(Datos1, aes(x=Datos1$gea_bacteriana, y=Datos1$sangre_heces, fill=Datos1$gea_bacteriana)) +
+  geom_bar(stat=&quot;identity&quot;)</code></pre>
+<p><img src="recurso310_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>Podemos deducir que puede existir una relación entre sangre en heces
+y GEA bacteriana (también, podemos realizar una prueba entre variables
+categóricas).</p>
+<p><br/><br/></p>
+</div>
+<div id="modelo-algoritmo" class="section level3">
+<h3><strong>Modelo (algoritmo)</strong></h3>
+<p>Antes de proceder, queremos codificar las variables de interés, como
+numéricas, donde <span class="math inline">\(1\)</span> corresponde a
+presencia de bacteria o heces, respctivamente.</p>
+<pre class="r"><code>Datos1$gea_bacterianax=as.numeric(Datos1$gea_bacteriana==&quot;Si&quot;)
+Datos1$sangre_hecesy=as.numeric(Datos1$sangre_heces==&quot;Si&quot;)</code></pre>
+<p><br/><br/></p>
+<p>Ahora vamos a proponer un modelo para dicha relación</p>
+<pre class="r"><code>modeloRLog&lt;-glm(formula=gea_bacterianax ~ sangre_hecesy, data=Datos1, family = binomial)
+summary(modeloRLog)</code></pre>
+<pre><code>
+Call:
+glm(formula = gea_bacterianax ~ sangre_hecesy, family = binomial, 
+    data = Datos1)
+
+Coefficients:
+              Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)    -0.9710     0.1468  -6.616 3.70e-11 ***
+sangre_hecesy   2.0125     0.4970   4.049 5.14e-05 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 319.55  on 255  degrees of freedom
+Residual deviance: 300.34  on 254  degrees of freedom
+AIC: 304.34
+
+Number of Fisher Scoring iterations: 4</code></pre>
+<p>En este caso, la función <em>glm</em> nos permite proponer un modelo
+bajo la fórmula de <span class="math inline">\(Y\)</span> en función de
+<span class="math inline">\(X\)</span>. Recuerde que la variable
+respuesta es binaria y por tanto la familia es binomial. Además, la
+función <em>summary</em> nos brinda información del modelo.</p>
+<p><br/><br/></p>
+</div>
+<div id="predicción" class="section level3">
+<h3><strong>Predicción</strong></h3>
+<p>Una de las utilidades del modelo logístico es realizar predicciones
+sobre la presencia o ausencia del suceso en la variable dependiente,
+siempre y cuando el diseño epidemiológico sea adecuado (longitudinal).
+En nuestro ejemplo, podemos calcular la probabilidad de presentar
+gastroenteritis bacteriana en presencia de sangre en heces estaría dada
+como <span class="math inline">\(0.739\)</span></p>
+<pre class="r"><code>new.data=data.frame(sangre_hecesy=1)
+predicción&lt;-predict(modeloRLog, new.data, type = &quot;response&quot;)</code></pre>
+<p>es decir, un niño con sangre en la heces, tiene un <span
+class="math inline">\(73.9\%\)</span> de tener gastroenteritis
+bacteriana.</p>
+<p><br/><br/></p>
+</div>
+<div id="qué-tan-válido-es-el-modelo" class="section level3">
+<h3><strong>¿Qué tan válido es el modelo?</strong></h3>
+<p>Una de las formas de validar el modelo de regresión logística es a
+través del cálculo de la curva ROC y el AUC.</p>
+<p>La curva ROC (Receiver Operating Characteristic) se utiliza para
+evaluar el rendimiento de los algoritmos de clasificación binaria,
+proporciona una representación gráfica, en lugar de un valor único como
+la mayoría de las otras métricas.</p>
+<p>Si bien es útil visualizar la curva ROC de un clasificador binario,
+en muchos casos podemos resumir esta información en una sola métrica: el
+AUC. El AUC significa área bajo la curva (ROC) en inglés. Generalmente,
+cuanto mayor es la puntuación AUC, mejor es el rendimiento de un
+clasificador binario para una tarea de clasificación dada.</p>
+<p><br/><br/></p>
+<pre class="r"><code>#Vamos a contruir la curva ROC y AUC
+require(pROC)
+
+probabilidad_modeloRLog=modeloRLog$fitted.values
+objroc &lt;- roc(Datos1$gea_bacterianax ~ probabilidad_modeloRLog,auc=T,ci=T)
+objroc</code></pre>
+<pre><code>
+Call:
+roc.formula(formula = Datos1$gea_bacterianax ~ probabilidad_modeloRLog,     auc = T, ci = T)
+
+Data: probabilidad_modeloRLog in 175 controls (Datos1$gea_bacterianax 0) &lt; 81 cases (Datos1$gea_bacterianax 1).
+Area under the curve: 0.5878
+95% CI: 0.5412-0.6344 (DeLong)</code></pre>
+<p><br/><br/></p>
+<p>Gráficamente,</p>
+<pre class="r"><code>plot.roc(objroc,print.auc=T,print.thres = &quot;best&quot;,col=&quot;red&quot;
+         ,xlab = &quot;Specificity&quot;, ylab = &quot;Sensitivity&quot;)</code></pre>
+<p><img src="recurso310_files/figure-html/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>El poder de clasificación del modelo es del <span
+class="math inline">\(58\%\)</span>, posiblemente es necesario
+considerar otras variables.</p>
+<pre class="r"><code>#Punto de corte: 
+c&lt;-coords(objroc, &quot;best&quot;, ret=c(&quot;threshold&quot;, &quot;specificity&quot;, &quot;sensitivity&quot;),
+          as.list=FALSE,drop=TRUE, best.model=c(&quot;closest.topleft&quot;), transpose = FALSE)
+c</code></pre>
+<pre><code>$threshold
+[1] 0.5069043
+
+$specificity
+[1] 0.9657143
+
+$sensitivity
+[1] 0.2098765</code></pre>
+<p>En el punto de corte, se tiene que el umbral de clasificación es del
+<span class="math inline">\(50\%\)</span> es decir, que los que estén
+por encima de este porcentaje tienen gastroenteritos bacteriana. La
+sensibilidad es del <span class="math inline">\(96\%\)</span> mientras
+que, la especificidad del <span class="math inline">\(20\%\)</span>.</p>
+<p>La sensibilidad del <span class="math inline">\(96\%\)</span> hace
+referencia a aquellos que el modelo dice que tienen gastroenteritis
+bacteriana y en realidad tienen gastroenteritis bacteriana mientras que,
+la especificidad es de <span class="math inline">\(20\%\)</span> y hace
+referencia a aquellos que el modelo dice que no tienen gastroenteritis
+bacteriana y en verdad no tienen gastroenteritis bacteriana.</p>
+<p><br/><br/></p>
+</div>
+</div>
+<div id="regresión-logística-múltiple-en-r" class="section level2">
+<h2><span style="color:#0E9183"><strong>Regresión Logística Múltiple en
+R</strong></span></h2>
+<p>También, podemos definir en términos más generales, la relación entre
+la variable respuesta <span class="math inline">\(Y\)</span> y otras
+variables. Esta se conoce como al Regresión Logística Múltiple o
+multinomial. Donde la probabilidad de <span
+class="math inline">\(Y\)</span> dado toda la información de las demás
+variables, estará dada por</p>
+<p><span class="math display">\[P(Y=1|X)=\frac{1}{1+e^{\beta_0+\beta_1
+x_1+\beta_2 x_2+\ldots+\beta_m x_m}}\]</span> siendo <span
+class="math inline">\(\beta_0, \beta_1, \beta_2,\ldots,\beta_m\)</span>
+los coeficientes.</p>
+<p><br/><br/></p>
+<p>Continuemos con el ejemplo anterior, pero ahora consideremos no sólo
+la variable sangre en la heces sino la variable Edad, es decir,
+propongamos un nuevo modelo.</p>
+<pre class="r"><code>#primero debemos tnsformar como nu,érica la variable Edad2asang
+Datos1$Edad2asang_new =as.numeric(Datos1$Edad2asang ==&quot;Si&quot;)
+
+modeloRLog2&lt;-glm(formula=gea_bacterianax ~ sangre_hecesy+Edad2asang_new, data=Datos1, family = binomial)
+summary(modeloRLog2)</code></pre>
+<pre><code>
+Call:
+glm(formula = gea_bacterianax ~ sangre_hecesy + Edad2asang_new, 
+    family = binomial, data = Datos1)
+
+Coefficients:
+               Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)     -0.9710     0.1468  -6.616  3.7e-11 ***
+sangre_hecesy    0.6833     0.7777   0.879   0.3796    
+Edad2asang_new   2.2336     1.0746   2.079   0.0377 *  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 319.55  on 255  degrees of freedom
+Residual deviance: 295.56  on 253  degrees of freedom
+AIC: 301.56
+
+Number of Fisher Scoring iterations: 4</code></pre>
+<p><br/><br/></p>
+<p>Análogamente, podemos predecir</p>
+<pre class="r"><code>new.data=data.frame(sangre_hecesy=1, Edad2asang_new=0)
+predicción2&lt;-predict(modeloRLog2, new.data, type = &quot;response&quot;)</code></pre>
+<p>esto es, si un niño tiene sandre en la heces y es menor de 2 años,
+tiene una probabilidad de <span class="math inline">\(0.875\)</span> de
+tener gastroenteritis bacteriana.</p>
+<p>También, observemos la capacidad del clasificador</p>
+<pre class="r"><code>#Vamos a contruir la curva ROC y AUC
+require(pROC)
+
+probabilidad_modeloRLog2=modeloRLog2$fitted.values
+objroc2 &lt;- roc(Datos1$gea_bacterianax ~ probabilidad_modeloRLog2,auc=T,ci=T)
+objroc2</code></pre>
+<pre><code>
+Call:
+roc.formula(formula = Datos1$gea_bacterianax ~ probabilidad_modeloRLog2,     auc = T, ci = T)
+
+Data: probabilidad_modeloRLog2 in 175 controls (Datos1$gea_bacterianax 0) &lt; 81 cases (Datos1$gea_bacterianax 1).
+Area under the curve: 0.5896
+95% CI: 0.5426-0.6365 (DeLong)</code></pre>
+<p><br/><br/></p>
+<p>Gráficamente,</p>
+<pre class="r"><code>plot.roc(objroc2,print.auc=T,print.thres = &quot;best&quot;,col=&quot;red&quot;
+         ,xlab = &quot;Specificity&quot;, ylab = &quot;Sensitivity&quot;)</code></pre>
+<p><img src="recurso310_files/figure-html/unnamed-chunk-24-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><br/><br/></p>
+<p>El poder de clasificación del modelo es del <span
+class="math inline">\(59\%\)</span>.</p>
+<pre class="r"><code>#Punto de corte: 
+c&lt;-coords(objroc2, &quot;best&quot;, ret=c(&quot;threshold&quot;, &quot;specificity&quot;, &quot;sensitivity&quot;),
+          as.list=FALSE,drop=TRUE, best.model=c(&quot;closest.topleft&quot;), transpose = FALSE)
+c</code></pre>
+<pre><code>$threshold
+[1] 0.3516248
+
+$specificity
+[1] 0.9657143
+
+$sensitivity
+[1] 0.2098765</code></pre>
+<p>Considerando el punto de corte, se tiene que el umbral de
+clasificación es del <span class="math inline">\(35\%\)</span> es decir,
+que los que estén por encima de este porcentaje tienen gastroenteritos
+bacteriana. La sensibilidad es del <span
+class="math inline">\(96.5\%\)</span> mientras que, la especificidad del
+<span class="math inline">\(20.9\%\)</span>.</p>
+<p>De nuevo, la sensibilidad del <span
+class="math inline">\(96.5\%\)</span> quiere decir que aquellos que el
+modelo dice que tienen gastroenteritis bacteriana y en realidad tienen
+gastroenteritis bacteriana mientras que, la especificidad es de <span
+class="math inline">\(20.9\%\)</span> indica que aquellos que el modelo
+dice que no tienen gastroenteritis bacteriana y en verdad no tienen
+gastroenteritis bacteriana.</p>
+<p>En las siguientes unidades, daremos mayor detalle a la validación de
+los modelos.</p>
+</div>
+</div>
 
 
 
